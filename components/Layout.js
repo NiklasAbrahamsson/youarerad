@@ -28,7 +28,7 @@ export default function Layout({ children, pageHeader, pageTitle, pageLink, desc
         <meta property="og:url" content={'https://youarerad.org/' + { pageLink }} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/radlogo.png" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@youarerad" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={description} />
