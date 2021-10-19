@@ -63,7 +63,7 @@ const CreditsMenu = () => {
     }
   }
   return (
-    <div className="pt-10 ">
+    <div className="pt-10">
       <div className="fixed w-full max-w-sm mx-auto transform -translate-x-1/2 bg-black border-4 border-gray-800 bg-opacity-60 top-10 left-1/2 rounded-xl">
         <div
           id="healthBar"
@@ -113,10 +113,10 @@ const CreditsMenu = () => {
             <div className="relative w-1/4 h-40 overflow-hidden rounded-xl ring ring-white">
               <Image alt={creditText} src={creditImage} layout="fill" objectFit="cover" />
             </div>
-            <p className="w-full font-mono font-bold text-center text-white">
+            <p className="w-full font-mono text-lg font-bold text-center text-white">
               <span>
                 <Link href={creditLink}>
-                  <a target="_blank" className="underline text-gray-50 ">
+                  <a target="_blank" className="underline text-gray-50">
                     {creditText}
                   </a>
                 </Link>
@@ -124,7 +124,9 @@ const CreditsMenu = () => {
               used <span className="text-yellow-300">{spellUsed}</span>
               <span>
                 {' '}
-                <p className="px-4 pt-4">Thank you converting YouAreRad.org to TypeScript!</p>
+                <p className="px-4 pt-4 text-lg">
+                  Thank you converting YouAreRad.org to TypeScript!
+                </p>
               </span>
             </p>
           </div>
