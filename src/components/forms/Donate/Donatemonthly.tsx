@@ -21,7 +21,7 @@ export default function Donatemonthly() {
     const provides = e.currentTarget.step
 
     setInput({
-      ...input,
+      ...(input as any),
       value,
     })
     setImpact('$' + Math.floor(id / 10))
