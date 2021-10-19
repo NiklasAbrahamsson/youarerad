@@ -21,7 +21,7 @@ export default function Donateonce() {
     const provides = event.currentTarget.step
     setInput({
       ...input,
-      value: Math.round(value),
+      value: Math.round(value * 100),
     })
     setImpact('$' + Math.floor(value / 10))
     setMessage(provides)
@@ -73,7 +73,7 @@ export default function Donateonce() {
             step={stepOne}
             type="radio"
             name="donation"
-            value="300"
+            value="30"
             id="300"
             onChange={handleInputChange}
           />
@@ -84,7 +84,7 @@ export default function Donateonce() {
             step={stepTwo}
             type="radio"
             name="donation"
-            value="600"
+            value="60"
             id="600"
             onChange={handleInputChange}
           />
@@ -96,7 +96,7 @@ export default function Donateonce() {
             defaultChecked
             type="radio"
             name="donation"
-            value="1200"
+            value="120"
             id="1200"
             onChange={handleInputChange}
           />
@@ -107,7 +107,7 @@ export default function Donateonce() {
             step={stepFour}
             type="radio"
             name="donation"
-            value="3000"
+            value="300"
             id="3000"
             onChange={handleInputChange}
           />

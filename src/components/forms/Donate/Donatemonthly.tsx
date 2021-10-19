@@ -11,7 +11,7 @@ const stepFour = ' covers the cost of four therapy sessions each month.'
 
 export default function Donatemonthly() {
   const [loading, setLoading] = useState(false)
-  const [input, setInput] = useState({})
+  const [input, setInput] = useState('price_1JVIqXEavBxf0OLS1NQzttQR')
   const [impact, setImpact] = useState('$30')
   const [message, setMessage] = useState(stepTwo)
 
