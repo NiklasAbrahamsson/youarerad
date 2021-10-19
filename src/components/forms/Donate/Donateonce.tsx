@@ -10,7 +10,7 @@ const stepFour = ' covers the cost of two full months of therapy sessions.'
 
 export default function Donateonce() {
   const [loading, setLoading] = useState(false)
-  const [input, setInput] = useState({ value: 0 })
+  const [input, setInput] = useState({ value: 1200 })
   const [impact, setImpact] = useState('$30')
   const [message, setMessage] = useState(stepTwo)
   const [customMessage, setCustomMessage] = useState({ value: 0 })
@@ -23,7 +23,7 @@ export default function Donateonce() {
       ...input,
       value: Math.round(value),
     })
-    setImpact('$' + Math.floor(value))
+    setImpact('$' + Math.floor(value / 10))
     setMessage(provides)
 
     if (id === 'donateother') {
@@ -107,7 +107,7 @@ export default function Donateonce() {
             step={stepFour}
             type="radio"
             name="donation"
-            value="300"
+            value="3000"
             id="3000"
             onChange={handleInputChange}
           />
