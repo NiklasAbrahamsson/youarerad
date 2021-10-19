@@ -17,7 +17,7 @@ export default function Donateonce() {
 
   const handleInputChange = (event: FormEvent<HTMLInputElement>) => {
     const id = event.currentTarget.id
-    const value = parseInt(event.currentTarget.value)
+    const value = Number(event.currentTarget.value)
     const provides = event.currentTarget.step
     setInput({
       ...input,
