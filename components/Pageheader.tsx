@@ -1,12 +1,12 @@
 type TPageHeaderProps = {
-  subheader?: string;
-  headerone?: string;
-  headertwo?: string;
-  headerthree?: string;
-  charone?: string;
-  chartwo?: string;
-  charthree?: string;
-  color?: string;
+  subheader?: string
+  headerone?: string
+  headertwo?: string
+  headerthree?: string
+  charone?: string
+  chartwo?: string
+  charthree?: string
+  color?: string
 }
 
 export default function Pageheader({

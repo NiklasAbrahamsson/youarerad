@@ -2,15 +2,15 @@ import Image from 'next/image'
 
 type TwitterProps = {
   text: JSX.Element | string
-  id: string;
-  name: string;
-  author: string;
-  media: string;
-  created_at: string;
-  likes: string;
-  retweets: string;
-  comments: string;
-  image?: string;
+  id: string
+  name: string
+  author: string
+  media: string
+  created_at: string
+  likes: string
+  retweets: string
+  comments: string
+  image?: string
 }
 
 export default function Twitter({

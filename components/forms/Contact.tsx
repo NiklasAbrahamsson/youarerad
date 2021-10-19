@@ -35,12 +35,12 @@ export default function Contactform() {
     })
 
     const result = await res.json()
-    if (result){ 
-    ;(document.getElementById('name')as HTMLInputElement).value = ''
-    ;(document.getElementById('email')as HTMLInputElement).value = ''
-    ;(document.getElementById('message')as HTMLInputElement).value! = ''
-    setSubmitted(true)
-  }
+    if (result) {
+      ;(document.getElementById('name') as HTMLInputElement).value = ''
+      ;(document.getElementById('email') as HTMLInputElement).value = ''
+      ;(document.getElementById('message') as HTMLInputElement).value! = ''
+      setSubmitted(true)
+    }
   }
   return (
     <form onSubmit={sendContact}>
