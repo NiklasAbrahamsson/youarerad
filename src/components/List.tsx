@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Board } from 'libs/Data/Board'
+import { Board } from '@/libs/Data/Board'
 
 export default function List({ items }: { items: typeof Board }) {
   return (

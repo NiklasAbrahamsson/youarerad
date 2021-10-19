@@ -1,6 +1,6 @@
 import { supabase } from '../../components/utils/supabaseClient'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { User } from 'types/api-schema'
+import { User } from '@/types/api-schema'
 
 export default async function sendVolunteer(req: NextApiRequest, res: NextApiResponse) {
   const { name, email, volunteertype, experience, why } = req.body
