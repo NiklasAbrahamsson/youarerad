@@ -106,7 +106,7 @@ if you are seeking help but don't want to go from therapist to therapist trying 
                 media={<VideoPlayer publicId="General%20Media/therapistfinder" />}
               />
             </div>
-            <Button linkTo="/">Applications Temporarily Closed</Button>
+            <Button linkTo="https://intakeq.com/new/KT5Fej/ttVScO">Start Therapy</Button>
           </Lazysections>
         </section>
       </div>
