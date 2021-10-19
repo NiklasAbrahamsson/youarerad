@@ -10,10 +10,10 @@ const stepFour = ' covers the cost of two full months of therapy sessions.'
 
 export default function Donateonce() {
   const [loading, setLoading] = useState(false)
-  const [input, setInput] = useState({value: 0})
+  const [input, setInput] = useState({ value: 0 })
   const [impact, setImpact] = useState('$30')
   const [message, setMessage] = useState(stepTwo)
-  const [customMessage, setCustomMessage] = useState({value: 0})
+  const [customMessage, setCustomMessage] = useState({ value: 0 })
 
   const handleInputChange = (event: FormEvent<HTMLInputElement>) => {
     const id = event.currentTarget.id
@@ -52,11 +52,11 @@ export default function Donateonce() {
     }
 
     const stripe = await getStripe()
-    if(stripe !== null) {
-    const { error } = await stripe.redirectToCheckout({
-      sessionId: response.id,
-    })
-    console.warn(error.message)
+    if (stripe !== null) {
+      const { error } = await stripe.redirectToCheckout({
+        sessionId: response.id,
+      })
+      console.warn(error.message)
     }
     setLoading(false)
   }
@@ -73,7 +73,7 @@ export default function Donateonce() {
             step={stepOne}
             type="radio"
             name="donation"
-            value="30"
+            value="300"
             id="300"
             onChange={handleInputChange}
           />
@@ -84,7 +84,7 @@ export default function Donateonce() {
             step={stepTwo}
             type="radio"
             name="donation"
-            value="60"
+            value="600"
             id="600"
             onChange={handleInputChange}
           />
@@ -96,7 +96,7 @@ export default function Donateonce() {
             defaultChecked
             type="radio"
             name="donation"
-            value="120"
+            value="1200"
             id="1200"
             onChange={handleInputChange}
           />
