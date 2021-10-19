@@ -7,10 +7,15 @@ import Sectionheader from '@/components/Sectionheader'
 import Sectiontext from '@/components/Sectiontext'
 import Carousel from '@/components/utils/Carousel'
 import Fadeinsections from '@/components/utils/fadesections'
+import { trpc } from '@/utils/trpc-client'
 
 const VideoPlayer = dynamic(() => import('@/components/utils/videoplayer'), { ssr: false })
 
 export default function Home() {
+  const { data } = trpc.useQuery(['hello'])
+
+  if (data) return <div>{data?.greeting}</div>
+
   return (
     <>
       <Layout
