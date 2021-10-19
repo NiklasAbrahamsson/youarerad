@@ -1,5 +1,5 @@
 import { Tab } from '@headlessui/react'
-import { Credits, Enemies } from 'libs/Data/Credits'
+import { Credits, Enemies } from '@/libs/Data/Credits'
 import Image from 'next/dist/client/image'
 import Link from 'next/dist/client/link'
 import { FormEvent, Fragment, useState } from 'react'

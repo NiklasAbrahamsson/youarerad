@@ -5,7 +5,8 @@
     "build": "NODE_ENV=production next build",
     "build:css": "tailwind build static/css/tw.css -o static/css/tailwind.css",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.1",
