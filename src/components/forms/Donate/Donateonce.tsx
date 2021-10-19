@@ -23,7 +23,7 @@ export default function Donateonce() {
       ...input,
       value: Math.round(value * 100),
     })
-    setImpact('$' + Math.floor(value / 10))
+    setImpact('$' + Math.floor(value))
     setMessage(provides)
 
     if (id === 'donateother') {
