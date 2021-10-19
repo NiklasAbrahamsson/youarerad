@@ -11,13 +11,13 @@ const stepFour = ' covers the cost of four therapy sessions each month.'
 
 export default function Donatemonthly() {
   const [loading, setLoading] = useState(false)
-  const [input, setInput] = useState({ value: 0 })
+  const [input, setInput] = useState({})
   const [impact, setImpact] = useState('$30')
   const [message, setMessage] = useState(stepTwo)
 
   const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
     const id = parseInt(e.currentTarget.id)
-    const value = parseInt(e.currentTarget.value)
+    const value = String(e.currentTarget.value)
     const provides = e.currentTarget.step
 
     setInput({
