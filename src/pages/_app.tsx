@@ -4,7 +4,7 @@ import type { AppProps } from 'next/dist/shared/lib/router/router'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import '../styles/globals.css'
-import { AppRouter } from './api/trpc/[trpc]'
+import type { AppRouter } from '@/backend/router'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
