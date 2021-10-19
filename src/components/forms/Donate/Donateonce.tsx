@@ -96,7 +96,7 @@ export default function Donateonce() {
             defaultChecked
             type="radio"
             name="donation"
-            value="120"
+            value="1200"
             id="1200"
             onChange={handleInputChange}
           />
@@ -107,7 +107,7 @@ export default function Donateonce() {
             step={stepFour}
             type="radio"
             name="donation"
-            value="300"
+            value="3000"
             id="3000"
             onChange={handleInputChange}
           />
