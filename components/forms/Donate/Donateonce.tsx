@@ -11,7 +11,7 @@ const stepFour = ' covers the cost of two full months of therapy sessions.'
 export default function Donateonce() {
   const [loading, setLoading] = useState(false)
   const [input, setInput] = useState({ value: 1200 })
-  const [impact, setImpact] = useState('$30')
+  const [impact, setImpact] = useState('$120')
   const [message, setMessage] = useState(stepTwo)
   const [customMessage, setCustomMessage] = useState({ value: 0 })
 
