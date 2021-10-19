@@ -2,7 +2,7 @@ import { CloudinaryContext, Video } from 'cloudinary-react'
 import { useRef } from 'react'
 
 type VideoPlayerProps = {
-  publicId: string;
+  publicId: string
 }
 
 const VideoPlayer = ({ publicId }: VideoPlayerProps) => {

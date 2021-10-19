@@ -1,11 +1,16 @@
-import { useEffect, RefObject,  } from 'react'
+import { useEffect, RefObject } from 'react'
 
 type useIntersectionOptions = {
-  threshold: number;
-  rootMargin: string;
+  threshold: number
+  rootMargin: string
 }
 
-export const useIntersection = (ref: RefObject<HTMLElement>, selector: string, handler: (entry: IntersectionObserverEntry, idx: number) => void, options: useIntersectionOptions) => {
+export const useIntersection = (
+  ref: RefObject<HTMLElement>,
+  selector: string,
+  handler: (entry: IntersectionObserverEntry, idx: number) => void,
+  options: useIntersectionOptions
+) => {
   useEffect(() => {
     const observers: IntersectionObserver[] = []
 

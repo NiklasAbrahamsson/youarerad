@@ -31,7 +31,7 @@ function useOnScreen(ref: RefObject<HTMLElement>, rootMargin?: string) {
 }
 
 type LazysectionsProps = {
-  children: ReactNode;
+  children: ReactNode
 }
 
 const Lazysections = ({ children }: LazysectionsProps) => {
