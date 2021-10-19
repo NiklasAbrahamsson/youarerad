@@ -1,8 +1,8 @@
+import Sectiontext from '@/components/Sectiontext'
 import dynamic from 'next/dynamic'
-import DonateGuild from '../components/forms/Donate/Donateguild.js'
+import DonateGuild from '../components/forms/Donate/Donateguild'
 import Layout from '../components/Layout'
 import Pageheader from '../components/Pageheader'
-import Sectiontext from '@/components/Sectiontext'
 
 const VideoPlayer = dynamic(() => import('@/components/utils/videoplayer'), { ssr: false })
 

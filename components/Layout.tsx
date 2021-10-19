@@ -8,10 +8,10 @@ const Footer = dynamic(() => import('../components/Footer'))
 export const siteTitle = 'Rise Above The Disorder'
 
 type LayoutProps = {
-  description: string
-  pageHeader: ReactNode
-  pageTitle: string
-  pageLink: string
+  description?: string
+  pageHeader?: ReactNode
+  pageTitle?: string
+  pageLink?: string
 }
 
 const Layout: React.FC<LayoutProps> = ({

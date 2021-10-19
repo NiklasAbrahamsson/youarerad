@@ -1,14 +1,14 @@
 import dynamic from 'next/dynamic'
-import Button from '../components/Button.js'
-import Faq from '../components/Faq.js'
-import Layout from '../components/Layout.js'
-import Pageheader from '../components/Pageheader.js'
-import Sectionheader from '../components/Sectionheader.js'
-import Sectiontext from '../components/Sectiontext.js'
-import Lazysections from '../components/utils/lazysections.js'
-import Twitter from '../components/utils/Twitter.js'
+import Button from '../components/Button'
+import Faq from '../components/Faq'
+import Layout from '../components/Layout'
+import Pageheader from '../components/Pageheader'
+import Sectionheader from '../components/Sectionheader'
+import Sectiontext from '../components/Sectiontext'
+import Lazysections from '../components/utils/lazysections'
+import Twitter from '../components/utils/Twitter'
 
-const VideoPlayer = dynamic(() => import('../components/utils/videoplayer.js'), { ssr: false })
+const VideoPlayer = dynamic(() => import('../components/utils/videoplayer'), { ssr: false })
 
 const faqs = [
   {

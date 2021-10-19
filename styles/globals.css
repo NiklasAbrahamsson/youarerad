@@ -388,3 +388,10 @@ video {
     background-position: 0% 50%;
   }
 }
+
+.bg-credits {
+  background-image: url('/Fight.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover, contain;
+}
