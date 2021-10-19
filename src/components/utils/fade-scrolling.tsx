@@ -2,8 +2,8 @@ import { useRef, useState, ReactNode } from 'react'
 import { useIntersection } from './useintersection'
 
 type FadescrollingProps = {
-  videos: ReactNode[];
-  children: ReactNode;
+  videos: ReactNode[]
+  children: ReactNode
 }
 
 export default function Fadescrolling({ children, videos }: FadescrollingProps) {
