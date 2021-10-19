@@ -5,7 +5,8 @@
     "build": "NODE_ENV=production next build",
     "build:css": "tailwind build static/css/tw.css -o static/css/tailwind.css",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.1",
@@ -15,6 +16,10 @@
     "@supabase/supabase-js": "^1.22.4",
     "@tailwindcss/aspect-ratio": "^0.2.1",
     "@tailwindcss/forms": "^0.3.3",
+    "@trpc/client": "^9.10.0",
+    "@trpc/next": "^9.10.0",
+    "@trpc/react": "^9.10.0",
+    "@trpc/server": "^9.10.0",
     "cloudinary-react": "^1.7.0",
     "embla-carousel": "^4.5.3",
     "fathom-client": "^3.2.0",
@@ -29,9 +34,11 @@
     "react-intersection-observer": "^8.32.1",
     "react-lottie-player": "^1.4.0",
     "react-plaid-link": "^3.2.1",
+    "react-query": "^3.27.0",
     "stripe": "^8.172.0",
     "swr": "^1.0.1",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "zod": "^3.10.1"
   },
   "devDependencies": {
     "@types/micro": "^7.3.6",

@@ -1,26 +1,12 @@
+import { trpc } from '@/utils/trpc-client'
 import { Session } from '@supabase/gotrue-js'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import useSWR from 'swr'
 import Account from '../components/forms/Guild/Account'
-import { fetchGetJSON } from '../components/utils/api-helpers'
 import { supabase } from '../components/utils/supabaseClient'
 
-const Success = () => {
-  const [session, setSession] = useState<Session | null>(null)
-  const {
-    query: { session_id },
-  } = useRouter()
-
-  const { data, error } = useSWR(() => `/api/checkout_sessionsguild/${session_id}`, fetchGetJSON)
-
-  useEffect(() => {
-    setSession(supabase.auth.session())
-
-    supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
-  }, [])
+const Success: React.FC<{ id: string; session: Session | null }> = ({ id, session }) => {
+  const { data, error } = trpc.useQuery(['checkout.get-session', { id }])
 
   return (
     <div>
@@ -37,4 +23,23 @@ const Success = () => {
   )
 }
 
-export default Success
+const SuccessWrapper = () => {
+  const [session, setSession] = useState<Session | null>(null)
+  useEffect(() => {
+    setSession(supabase.auth.session())
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+  }, [])
+
+  const {
+    query: { session_id },
+  } = useRouter()
+
+  if (!session_id || typeof session_id !== 'string') return <div>Error: Bad session ID</div>
+
+  return <Success id={session_id} session={session} />
+}
+
+export default SuccessWrapper
