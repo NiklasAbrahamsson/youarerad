@@ -11,13 +11,13 @@ const stepFour = ' covers the cost of two full months of therapy sessions.'
 export default function Donateonce() {
   const [loading, setLoading] = useState(false)
   const [input, setInput] = useState({ value: 1200 })
-  const [impact, setImpact] = useState('$30')
+  const [impact, setImpact] = useState('$120')
   const [message, setMessage] = useState(stepTwo)
   const [customMessage, setCustomMessage] = useState({ value: 0 })
 
   const handleInputChange = (event: FormEvent<HTMLInputElement>) => {
     const id = event.currentTarget.id
-    const value = parseInt(event.currentTarget.value)
+    const value = Number(event.currentTarget.value)
     const provides = event.currentTarget.step
     setInput({
       ...input,

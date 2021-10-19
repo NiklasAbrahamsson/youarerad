@@ -10,7 +10,7 @@ const stepFour = ' covers an entire month of therapy sessions for two people.'
 
 export default function DonateGuild() {
   const [loading, setLoading] = useState(false)
-  const [input, setInput] = useState({ value: 0 })
+  const [input, setInput] = useState({ value: 300 })
   const [impact, setImpact] = useState('$30')
   const [message, setMessage] = useState(stepTwo)
 
