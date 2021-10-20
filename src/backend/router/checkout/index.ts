@@ -19,14 +19,6 @@ export const checkoutRouter = trpc
       return await getSessionById(input.id)
     },
   })
-  .mutation('create-single-session', {
-    input: z.object({
-      costInUSD: z.number(),
-    }),
-    async resolve({ input }) {
-      return await createSingleCheckoutSession(input.costInUSD)
-    },
-  })
   .mutation('create-monthly-session', {
     input: z.object({
       priceID: z.string(),
@@ -43,3 +35,16 @@ export const checkoutRouter = trpc
       return await createGuildCheckoutSession(input.priceID)
     },
   })
+  .mutation('create-single-session', {
+    input: z.object({
+      costInUSD: z.number(),
+    }),
+    async resolve({ input }) {
+      return await createSingleCheckoutSession(input.costInUSD)
+    },
+  })
+// .mutation('test', {
+//   async resolve() {
+//     return { message: 'wtf' }
+//   },
+// })

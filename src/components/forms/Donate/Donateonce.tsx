@@ -1,7 +1,6 @@
 import { trpc } from '@/utils/trpc-client'
 import { FormEvent, useState } from 'react'
 import Ctahover from '../../lotties/cta'
-import { fetchPostJSON } from '../../utils/api-helpers'
 import getStripe from '../../utils/get-stripe'
 
 const costOptions = [
@@ -35,12 +34,12 @@ export default function Donateonce() {
       }
     : costOptions[currentOption]
 
-  const { isLoading, mutateAsync } = trpc.useMutation('checkout.create-single-session')
+  const { isLoading, ...getCheckoutSession } = trpc.useMutation('checkout.create-single-session')
 
   const handleSubmit = async (event: FormEvent<HTMLButtonElement>) => {
     event.preventDefault()
 
-    const response = await mutateAsync({ costInUSD: selectedOption.decimalUSD })
+    const response = await getCheckoutSession.mutateAsync({ costInUSD: selectedOption.decimalUSD })
 
     const stripe = await getStripe()
     if (stripe !== null) {
@@ -50,6 +49,9 @@ export default function Donateonce() {
       console.warn(error.message)
     }
   }
+
+  // TODO: I'd recommend putting a loading spinner here so people can't spam the button and have a better loading state
+  if (isLoading) return <div>Loading...</div>
 
   return (
     <div>
