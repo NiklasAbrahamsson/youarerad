@@ -29,7 +29,7 @@ const costOptions = [
 export default function DonateGuild() {
   const [currentOption, setCurrentOption] = useState(0)
   const selectedOption = costOptions[currentOption]
-  const { isLoading, ...getCheckoutSession } = trpc.useMutation('checkout.create-session')
+  const { isLoading, ...getCheckoutSession } = trpc.useMutation('checkout.create-guild-session')
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()

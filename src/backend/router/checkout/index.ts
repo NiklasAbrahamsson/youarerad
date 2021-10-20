@@ -5,7 +5,7 @@ import getSessionById from './d/get-checkout'
 
 export const checkoutRouter = trpc
   .router()
-  .query('get-session', {
+  .query('get-guild-session', {
     input: z.object({
       id: z
         .string()
@@ -15,7 +15,7 @@ export const checkoutRouter = trpc
       return await getSessionById(input.id)
     },
   })
-  .mutation('create-session', {
+  .mutation('create-guild-session', {
     input: z.object({
       priceID: z.string(),
     }),
