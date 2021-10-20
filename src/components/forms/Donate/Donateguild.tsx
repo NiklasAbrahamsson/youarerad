@@ -1,46 +1,43 @@
-import { fetchPostJSON } from '@/components/utils/api-helpers'
+import { trpc } from '@/utils/trpc-client'
 import { FormEvent, useState } from 'react'
 import Ctahover from '../../lotties/cta'
 import getStripe from '../../utils/get-stripe'
 
-const stepOne = ' covers the cost of one therapy session each month.'
-const stepTwo = ' covers the cost of two therapy sessions each month.'
-const stepThree = ' covers an entire month of therapy sessions.'
-const stepFour = ' covers an entire month of therapy sessions for two people.'
+const costOptions = [
+  {
+    priceId: 'price_1JXB2OEavBxf0OLSdG6zXsMF',
+    priceString: '$30',
+    message: ' covers the cost of one therapy session each month.',
+  },
+  {
+    priceId: 'price_1JXB2OEavBxf0OLSek4zCo3H',
+    priceString: '$60',
+    message: ' covers the cost of two therapy sessions each month.',
+  },
+  {
+    priceId: 'price_1JXB2OEavBxf0OLSh8QCH0QR',
+    priceString: '$120',
+    message: ' covers an entire month of therapy sessions.',
+  },
+  {
+    priceId: 'price_1JXB2OEavBxf0OLSegJXvghM',
+    priceString: '$200',
+    message: ' covers an entire month of therapy sessions for two people.',
+  },
+]
 
 export default function DonateGuild() {
-  const [loading, setLoading] = useState(false)
-  const [input, setInput] = useState('price_1JXB2OEavBxf0OLSdG6zXsMF')
-  const [impact, setImpact] = useState('$30')
-  const [message, setMessage] = useState(stepTwo)
-
-  const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
-    const id = Number(e.currentTarget.id)
-    const value = String(e.currentTarget.value)
-    const provides = e.currentTarget.step
-
-    setInput({
-      ...(input as any),
-      value,
-    })
-    setImpact('$' + Math.floor(id / 10))
-    setMessage(provides)
-  }
-
-  console.log(input)
+  const [currentOption, setCurrentOption] = useState(0)
+  const selectedOption = costOptions[currentOption]
+  const { isLoading, ...getCheckoutSession } = trpc.useMutation('checkout.create-guild-session')
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setLoading(true)
 
-    const response = await fetchPostJSON('/api/checkout_sessionsM', {
-      amount: input,
-    })
+    if (!selectedOption) return null
 
-    if (response.statusCode === 500) {
-      console.error(response.message)
-      return
-    }
+    const response = await getCheckoutSession.mutateAsync({ priceID: selectedOption.priceId })
+
     const stripe = await getStripe()
     if (stripe !== null) {
       const { error } = await stripe.redirectToCheckout({
@@ -48,8 +45,10 @@ export default function DonateGuild() {
       })
       console.warn(error.message)
     }
-    setLoading(false)
   }
+
+  // TODO: I'd recommend putting a loading spinner here so people can't spam the button and have a better loading state
+  if (isLoading) return <div>Loading...</div>
 
   return (
     <div>
@@ -62,61 +61,29 @@ export default function DonateGuild() {
           aria-labelledby="donation-amount"
           className="grid items-center grid-cols-3 gap-5 min-w-max"
         >
-          <div className="relative">
-            <input
-              step={stepOne}
-              type="radio"
-              name="donation"
-              value="price_1JXB2OEavBxf0OLSdG6zXsMF"
-              id="300"
-              onChange={handleInputChange}
-            />
-            <label className="relative radio-label" htmlFor="300">
-              $30
-            </label>
-          </div>
-          <input
-            step={stepTwo}
-            type="radio"
-            name="donation"
-            value="price_1JXB2OEavBxf0OLSek4zCo3H"
-            id="600"
-            onChange={handleInputChange}
-          />
-          <label className="relative radio-label" htmlFor="600">
-            $60
-          </label>
-          <input
-            step={stepThree}
-            type="radio"
-            name="donation"
-            value="price_1JXB2OEavBxf0OLSh8QCH0QR"
-            id="1200"
-            onChange={handleInputChange}
-          />
-          <label className="relative radio-label" htmlFor="1200">
-            $120
-          </label>
-          <input
-            step={stepFour}
-            type="radio"
-            name="donation"
-            value="price_1JXB2OEavBxf0OLSegJXvghM"
-            id="2000"
-            onChange={handleInputChange}
-          />
-          <label className="relative radio-label" htmlFor="2000">
-            $200
-          </label>
+          {costOptions.map((option, index) => (
+            <div className="relative" key={index}>
+              <input
+                type="radio"
+                name="donation"
+                value={option.priceId}
+                checked={currentOption === index}
+                onChange={() => setCurrentOption(index)}
+                id={option.priceId}
+              />
+              <label className="relative radio-label" htmlFor={option.priceId}>
+                {option.priceString}
+              </label>
+            </div>
+          ))}
         </div>
         <div>
           <p className="pt-8">
-            Your donation of <span className="font-bold">{impact}</span>
-            {message}
+            Your donation of <span className="font-bold">{selectedOption.priceString}</span>
+            {selectedOption.message}
           </p>
         </div>
         <button
-          disabled={loading}
           type="submit"
           className="relative w-full col-span-3 p-2 mx-auto mt-10 overflow-hidden text-xl transition-all duration-300 ease-linear bg-white border-2 border-black fitems-center lg:mx-0 rounded-xl shadow-primary hover:shadow-none hover:bg-black hover:text-white"
         >

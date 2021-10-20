@@ -1,55 +1,45 @@
+import { trpc } from '@/utils/trpc-client'
 import { FormEvent, useState } from 'react'
 import Ctahover from '../../lotties/cta'
-import { fetchPostJSON } from '../../utils/api-helpers'
 import getStripe from '../../utils/get-stripe'
 
-const stepOne = ' covers the cost of one therapy session.'
-const stepTwo = ' covers the cost of two therapy sessions.'
-const stepThree = ' covers the cost of an entire month of therapy sessions.'
-const stepFour = ' covers the cost of two full months of therapy sessions.'
+const costOptions = [
+  {
+    decimalUSD: 3000,
+    message: ' covers the cost of one therapy session.',
+  },
+  {
+    decimalUSD: 6000,
+    message: ' covers the cost of two therapy sessions.',
+  },
+  {
+    decimalUSD: 12000,
+    message: ' covers the cost of an entire month of therapy sessions.',
+  },
+  {
+    decimalUSD: 30000,
+    message: ' covers the cost of two full months of therapy sessions.',
+  },
+]
 
 export default function Donateonce() {
-  const [loading, setLoading] = useState(false)
-  const [input, setInput] = useState({ value: 12000 })
-  const [impact, setImpact] = useState('$120')
-  const [message, setMessage] = useState(stepTwo)
-  const [customMessage, setCustomMessage] = useState({ value: 0 })
+  const [currentOption, setCurrentOption] = useState<number>(0)
 
-  const handleInputChange = (event: FormEvent<HTMLInputElement>) => {
-    const id = event.currentTarget.id
-    const value = Number(event.currentTarget.value)
-    const provides = event.currentTarget.step
-    setInput({
-      ...input,
-      value: Math.round(value * 100),
-    })
-    setImpact('$' + Math.floor(value))
-    setMessage(provides)
+  const [customAmount, setCustomAmount] = useState<number | undefined>(undefined)
 
-    if (id === 'donateother') {
-      // TODO: handle when user removes custom amount so NaN doesnt render
-      setCustomMessage({
-        ...input,
-        value: Math.round(value),
-      })
-      setMessage(' will cover ' + Math.floor(value / 30) + ' therapy sessions.')
-    }
-  }
+  const selectedOption = customAmount
+    ? {
+        decimalUSD: customAmount * 100,
+        message: ` will cover ${Math.floor(customAmount / 30)} therapy sessions.`,
+      }
+    : costOptions[currentOption]
 
-  console.log(input, 'Input')
+  const { isLoading, ...getCheckoutSession } = trpc.useMutation('checkout.create-single-session')
 
   const handleSubmit = async (event: FormEvent<HTMLButtonElement>) => {
     event.preventDefault()
-    setLoading(true)
 
-    const response = await fetchPostJSON('/api/checkout_sessions', {
-      amount: input,
-    })
-
-    if (response.statusCode === 500) {
-      console.error(response.message)
-      return
-    }
+    const response = await getCheckoutSession.mutateAsync({ costInUSD: selectedOption.decimalUSD })
 
     const stripe = await getStripe()
     if (stripe !== null) {
@@ -58,8 +48,10 @@ export default function Donateonce() {
       })
       console.warn(error.message)
     }
-    setLoading(false)
   }
+
+  // TODO: I'd recommend putting a loading spinner here so people can't spam the button and have a better loading state
+  if (isLoading) return <div>Loading...</div>
 
   return (
     <div>
@@ -69,51 +61,24 @@ export default function Donateonce() {
           aria-labelledby="donation-amount"
           className="grid grid-cols-3 gap-4 auto-cols-fr"
         >
-          <input
-            step={stepOne}
-            type="radio"
-            name="donation"
-            value="30"
-            id="300"
-            onChange={handleInputChange}
-          />
-          <label className="relative radio-label" htmlFor="300">
-            $30{' '}
-          </label>
-          <input
-            step={stepTwo}
-            type="radio"
-            name="donation"
-            value="60"
-            id="600"
-            onChange={handleInputChange}
-          />
-          <label className="relative radio-label" htmlFor="600">
-            $60
-          </label>
-          <input
-            step={stepThree}
-            defaultChecked
-            type="radio"
-            name="donation"
-            value="120"
-            id="1200"
-            onChange={handleInputChange}
-          />
-          <label className="relative radio-label" htmlFor="1200">
-            $120
-          </label>
-          <input
-            step={stepFour}
-            type="radio"
-            name="donation"
-            value="300"
-            id="3000"
-            onChange={handleInputChange}
-          />
-          <label className="relative radio-label" htmlFor="3000">
-            $300
-          </label>
+          {costOptions.map((option, index) => (
+            <div className="relative" key={index}>
+              <input
+                type="radio"
+                name="donation"
+                value={option.decimalUSD}
+                checked={!customAmount && currentOption === index}
+                onChange={() => {
+                  setCurrentOption(index)
+                  setCustomAmount(undefined)
+                }}
+                id={option.decimalUSD.toString()}
+              />
+              <label className="relative radio-label" htmlFor={option.decimalUSD.toString()}>
+                {'$' + (option.decimalUSD / 100).toFixed(0).toString()}
+              </label>
+            </div>
+          ))}
           <div className="col-span-2">
             <div className="border-gray-300">
               <input
@@ -122,18 +87,19 @@ export default function Donateonce() {
                 id="donateother"
                 className="block w-full px-3 py-4 border border-gray-300 shadow-sm rounded-xl sm:text-sm"
                 placeholder="Donate other amount"
-                onChange={handleInputChange}
+                value={customAmount} // I thought this would update when forced to undefined. I was wrong :(
+                onChange={(e) => setCustomAmount(e.currentTarget.valueAsNumber)}
               />
             </div>
           </div>
         </div>
         <p className="pt-8">
-          Your donation of <span className="font-bold">{impact}</span>
-          {message}
+          Your donation of{' '}
+          <span className="font-bold">{'$' + (selectedOption.decimalUSD / 100).toFixed(0)}</span>
+          {selectedOption.message}
         </p>
       </form>
       <button
-        disabled={loading}
         onClick={handleSubmit}
         className="relative items-center w-full col-span-3 p-2 mx-auto mt-4 overflow-hidden text-xl transition-all duration-300 ease-linear bg-white border-2 border-black lg:mx-0 rounded-xl shadow-primary hover:shadow-none hover:bg-black hover:text-white"
       >

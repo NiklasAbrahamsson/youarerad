@@ -6,7 +6,7 @@ import Account from '../components/forms/Guild/Account'
 import { supabase } from '../components/utils/supabaseClient'
 
 const Success: React.FC<{ id: string; session: Session | null }> = ({ id, session }) => {
-  const { data, error } = trpc.useQuery(['checkout.get-session', { id }])
+  const { data, error } = trpc.useQuery(['checkout.get-guild-session', { id }])
 
   return (
     <div>
