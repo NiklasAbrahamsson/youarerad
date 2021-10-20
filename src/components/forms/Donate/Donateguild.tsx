@@ -1,4 +1,3 @@
-import { fetchPostJSON } from '@/components/utils/api-helpers'
 import { trpc } from '@/utils/trpc-client'
 import { FormEvent, useState } from 'react'
 import Ctahover from '../../lotties/cta'
@@ -27,16 +26,10 @@ const costOptions = [
   },
 ]
 
-const stepOne = ' covers the cost of one therapy session each month.'
-const stepTwo = ' covers the cost of two therapy sessions each month.'
-const stepThree = ' covers an entire month of therapy sessions.'
-const stepFour = ' covers an entire month of therapy sessions for two people.'
-
 export default function DonateGuild() {
   const [currentOption, setCurrentOption] = useState(0)
-
   const selectedOption = costOptions[currentOption]
-  const getCheckoutSession = trpc.useMutation('checkout.create-session')
+  const { isLoading, ...getCheckoutSession } = trpc.useMutation('checkout.create-session')
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -53,6 +46,9 @@ export default function DonateGuild() {
       console.warn(error.message)
     }
   }
+
+  // TODO: I'd recommend putting a loading spinner here so people can't spam the button and have a better loading state
+  if (isLoading) return <div>Loading...</div>
 
   return (
     <div>
