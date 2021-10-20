@@ -51,7 +51,8 @@ export default function Donateonce() {
   }
 
   // TODO: I'd recommend putting a loading spinner here so people can't spam the button and have a better loading state
-  if (isLoading) return <div>Loading...</div>
+  //if (isLoading) return <div>Loading...</div>
+  // Response: Exploring having isLoading disable the submit button to prevent spam.
 
   return (
     <div>
@@ -101,6 +102,7 @@ export default function Donateonce() {
       </form>
       <button
         onClick={handleSubmit}
+        disabled={isLoading}
         className="relative items-center w-full col-span-3 p-2 mx-auto mt-4 overflow-hidden text-xl transition-all duration-300 ease-linear bg-white border-2 border-black lg:mx-0 rounded-xl shadow-primary hover:shadow-none hover:bg-black hover:text-white"
       >
         <span className="relative w-full font-bold text-center">Donate</span>
