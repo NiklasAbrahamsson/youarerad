@@ -17,7 +17,7 @@ export const checkoutRouter = trpc
   })
   .mutation('create-session', {
     input: z.object({
-      priceID: z.number(),
+      priceID: z.any(),
     }),
     async resolve({ input }) {
       return await createCheckoutSession(input.priceID)
