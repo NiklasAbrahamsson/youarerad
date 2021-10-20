@@ -1,4 +1,4 @@
-import { trpc } from '@/utils/trpc-client'
+import { fetchPostJSON } from '@/components/utils/api-helpers'
 import { FormEvent, useState } from 'react'
 import Ctahover from '../../lotties/cta'
 import getStripe from '../../utils/get-stripe'
@@ -13,8 +13,6 @@ export default function DonateGuild() {
   const [input, setInput] = useState('price_1JXB2OEavBxf0OLSdG6zXsMF')
   const [impact, setImpact] = useState('$30')
   const [message, setMessage] = useState(stepTwo)
-
-  const getCheckoutSession = trpc.useMutation('checkout.create-session')
 
   const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
     const id = Number(e.currentTarget.id)
@@ -35,8 +33,14 @@ export default function DonateGuild() {
     e.preventDefault()
     setLoading(true)
 
-    const response = await getCheckoutSession.mutateAsync({ priceID: input })
+    const response = await fetchPostJSON('/api/checkout_sessionsM', {
+      amount: input,
+    })
 
+    if (response.statusCode === 500) {
+      console.error(response.message)
+      return
+    }
     const stripe = await getStripe()
     if (stripe !== null) {
       const { error } = await stripe.redirectToCheckout({
