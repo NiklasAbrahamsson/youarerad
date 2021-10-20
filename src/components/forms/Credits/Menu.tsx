@@ -1,5 +1,5 @@
-import { Tab } from '@headlessui/react'
 import { Credits, Enemies } from '@/libs/Data/Credits'
+import { Tab } from '@headlessui/react'
 import Image from 'next/dist/client/image'
 import Link from 'next/dist/client/link'
 import { FormEvent, Fragment, useState } from 'react'
@@ -76,7 +76,7 @@ const CreditsMenu = () => {
         </div>
       </div>
       <Tab.Group vertical as="div" className="flex gap-4 mx-auto" defaultIndex={0}>
-        <Tab.List className="w-1/4 px-4 pb-4 space-y-4 font-mono text-xl font-semibold text-white border-4 rounded-xl">
+        <Tab.List className="px-4 pb-4 space-y-4 font-mono text-xl font-semibold text-white border-4 rounded-xl">
           {MenuItems.map((name) => (
             <Tab className="flex hover:underline" key={name.name}>
               {name.name}
@@ -88,7 +88,7 @@ const CreditsMenu = () => {
           {MenuItems.map((cast) => (
             <Tab.Panel
               key={cast.name}
-              className="w-3/4 p-4 space-y-4 font-mono text-xl font-semibold text-white border-4 rounded-xl"
+              className="w-full p-4 space-y-4 font-mono text-xl font-semibold text-white border-4 rounded-xl"
             >
               {cast.abilities.map((spells) => (
                 <div key={spells.abilityone} className="block">
