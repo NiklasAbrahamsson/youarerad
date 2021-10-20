@@ -5,7 +5,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2020-08-27',
 })
 
-const ORIGIN_URL = process.env.VERCEL_URL ?? 'localhost:3000'
+const ORIGIN_URL = process.env.VERCEL_URL ?? 'http://localhost:3000'
 
 export async function createSingleCheckoutSession(amount: number) {
   const params: Stripe.Checkout.SessionCreateParams = {

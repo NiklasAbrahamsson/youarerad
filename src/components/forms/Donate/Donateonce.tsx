@@ -25,7 +25,7 @@ const costOptions = [
 export default function Donateonce() {
   const [currentOption, setCurrentOption] = useState<number>(0)
 
-  const [customAmount, setCustomAmount] = useState<number | null>(null)
+  const [customAmount, setCustomAmount] = useState<number | undefined>(undefined)
 
   const selectedOption = customAmount
     ? {
@@ -68,7 +68,10 @@ export default function Donateonce() {
                 name="donation"
                 value={option.decimalUSD}
                 checked={!customAmount && currentOption === index}
-                onChange={() => setCurrentOption(index)}
+                onChange={() => {
+                  setCurrentOption(index)
+                  setCustomAmount(undefined)
+                }}
                 id={option.decimalUSD.toString()}
               />
               <label className="relative radio-label" htmlFor={option.decimalUSD.toString()}>
@@ -84,6 +87,7 @@ export default function Donateonce() {
                 id="donateother"
                 className="block w-full px-3 py-4 border border-gray-300 shadow-sm rounded-xl sm:text-sm"
                 placeholder="Donate other amount"
+                value={customAmount} // I thought this would update when forced to undefined. I was wrong :(
                 onChange={(e) => setCustomAmount(e.currentTarget.valueAsNumber)}
               />
             </div>
