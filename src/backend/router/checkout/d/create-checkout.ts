@@ -11,7 +11,7 @@ export default async function createCheckoutSession(priceID: string) {
     payment_method_types: ['card'],
     line_items: [
       {
-        price: priceID.toString(),
+        price: priceID,
         quantity: 1,
       },
     ],
