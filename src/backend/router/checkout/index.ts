@@ -1,6 +1,9 @@
 import * as trpc from '@trpc/server'
 import { z } from 'zod'
-import createCheckoutSession from './d/create-checkout'
+import {
+  createGuildCheckoutSession,
+  createMonthlyCheckoutSession,
+} from './d/create-checkout-session'
 import getSessionById from './d/get-checkout'
 
 export const checkoutRouter = trpc
@@ -20,6 +23,14 @@ export const checkoutRouter = trpc
       priceID: z.string(),
     }),
     async resolve({ input }) {
-      return await createCheckoutSession(input.priceID)
+      return await createGuildCheckoutSession(input.priceID)
+    },
+  })
+  .mutation('create-monthly-session', {
+    input: z.object({
+      priceID: z.string(),
+    }),
+    async resolve({ input }) {
+      return await createMonthlyCheckoutSession(input.priceID)
     },
   })

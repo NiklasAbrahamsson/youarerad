@@ -1,47 +1,42 @@
+import { trpc } from '@/utils/trpc-client'
 import Link from 'next/link'
-import React, { FormEvent, useState } from 'react'
+import { FormEvent, useState } from 'react'
 import Ctahover from '../../lotties/cta'
-import { fetchPostJSON } from '../../utils/api-helpers'
 import getStripe from '../../utils/get-stripe'
 
-const stepOne = ' covers the cost of medication refills each month.'
-const stepTwo = ' covers the cost of one therapy session each month.'
-const stepThree = ' covers the cost of two therapy sessions each month.'
-const stepFour = ' covers the cost of four therapy sessions each month.'
+const costOptions = [
+  {
+    priceId: 'price_1JVIqXEavBxf0OLS7wmeK3rS',
+    priceString: '$10',
+    message: ' covers the cost of medication refills each month.',
+  },
+  {
+    priceId: 'price_1JVIqXEavBxf0OLS1NQzttQR',
+    priceString: '$30',
+    message: ' covers the cost of one therapy session each month.',
+  },
+  {
+    priceId: 'price_1JVIqXEavBxf0OLS9LMxBJKd',
+    priceString: '$60',
+    message: ' covers the cost of two therapy sessions each month.',
+  },
+  {
+    priceId: 'price_1JVIqXEavBxf0OLSUbTR8x93',
+    priceString: '$120',
+    message: ' covers the cost of four therapy sessions each month.',
+  },
+]
 
 export default function Donatemonthly() {
-  const [loading, setLoading] = useState(false)
-  const [input, setInput] = useState('price_1JVIqXEavBxf0OLS1NQzttQR')
-  const [impact, setImpact] = useState('$30')
-  const [message, setMessage] = useState(stepTwo)
-
-  const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
-    const id = parseInt(e.currentTarget.id)
-    const value = String(e.currentTarget.value)
-    const provides = e.currentTarget.step
-
-    setInput({
-      ...(input as any),
-      value,
-    })
-    setImpact('$' + Math.floor(id / 10))
-    setMessage(provides)
-  }
-
-  console.log(input)
+  const [currentOption, setCurrentOption] = useState(0)
+  const selectedOption = costOptions[currentOption]
+  const { isLoading, ...getCheckoutSession } = trpc.useMutation('checkout.create-monthly-session')
 
   const handleSubmit = async (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    setLoading(true)
 
-    const response = await fetchPostJSON('/api/checkout_sessionsM', {
-      amount: input,
-    })
+    const response = await getCheckoutSession.mutateAsync({ priceID: selectedOption.priceId })
 
-    if (response.statusCode === 500) {
-      console.error(response.message)
-      return
-    }
     const stripe = await getStripe()
     if (stripe !== null) {
       const { error } = await stripe.redirectToCheckout({
@@ -49,8 +44,10 @@ export default function Donatemonthly() {
       })
       console.warn(error.message)
     }
-    setLoading(false)
   }
+
+  // TODO: I'd recommend putting a loading spinner here so people can't spam the button and have a better loading state
+  if (isLoading) return <div>Loading...</div>
 
   return (
     <div>
@@ -60,52 +57,21 @@ export default function Donatemonthly() {
           aria-labelledby="donation-amount"
           className="grid items-center grid-cols-3 gap-4 auto-cols-fr"
         >
-          <input
-            step={stepOne}
-            type="radio"
-            name="donation"
-            value="price_1JVIqXEavBxf0OLS7wmeK3rS"
-            id="100"
-            onChange={handleInputChange}
-          />
-          <label className="relative radio-label" htmlFor="100">
-            $10
-          </label>
-
-          <input
-            step={stepTwo}
-            type="radio"
-            name="donation"
-            value="price_1JVIqXEavBxf0OLS1NQzttQR"
-            id="300"
-            defaultChecked
-            onChange={handleInputChange}
-          />
-          <label className="relative radio-label" htmlFor="300">
-            $30
-          </label>
-          <input
-            step={stepThree}
-            type="radio"
-            name="donation"
-            value="price_1JVIqXEavBxf0OLS9LMxBJKd"
-            id="600"
-            onChange={handleInputChange}
-          />
-          <label className="relative radio-label" htmlFor="600">
-            $60
-          </label>
-          <input
-            step={stepFour}
-            type="radio"
-            name="donation"
-            value="price_1JVIqXEavBxf0OLSUbTR8x93"
-            id="1200"
-            onChange={handleInputChange}
-          />
-          <label className="relative radio-label" htmlFor="1200">
-            $120
-          </label>
+          {costOptions.map((option, index) => (
+            <div className="relative" key={index}>
+              <input
+                type="radio"
+                name="donation"
+                value={option.priceId}
+                checked={currentOption === index}
+                onChange={() => setCurrentOption(index)}
+                id={option.priceId}
+              />
+              <label className="relative radio-label" htmlFor={option.priceId}>
+                {option.priceString}
+              </label>
+            </div>
+          ))}
           <div className="col-span-2 transition-all duration-300 cursor-pointer ">
             <div className="">
               <Link href="https://www.twitch.tv/subs/youarerad">
@@ -119,12 +85,12 @@ export default function Donatemonthly() {
           </div>
         </div>
         <p className="pt-8">
-          Your donation of <span className="font-bold">{impact}</span>
-          {message}
+          Your donation of <span className="font-bold">{selectedOption.priceString}</span>
+          {selectedOption.message}
         </p>
       </form>
       <button
-        disabled={loading}
+        // disabled={loading}
         onClick={handleSubmit}
         className="relative items-center w-full col-span-3 p-2 mx-auto mt-4 overflow-hidden text-xl transition-all duration-300 ease-linear bg-white border-2 border-black lg:mx-0 rounded-xl shadow-primary hover:shadow-none hover:bg-black hover:text-white"
       >

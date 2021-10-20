@@ -68,10 +68,7 @@ export default function DonateGuild() {
                 name="donation"
                 value={option.priceId}
                 checked={currentOption === index}
-                onChange={(e) => {
-                  console.log('click?', e)
-                  setCurrentOption(index)
-                }}
+                onChange={() => setCurrentOption(index)}
                 id={option.priceId}
               />
               <label className="relative radio-label" htmlFor={option.priceId}>
