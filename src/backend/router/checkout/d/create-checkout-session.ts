@@ -7,18 +7,19 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 const ORIGIN_URL = process.env.VERCEL_URL ?? 'localhost:3000'
 
-export async function createGuildCheckoutSession(priceID: string) {
+export async function createSingleCheckoutSession(amount: number) {
   const params: Stripe.Checkout.SessionCreateParams = {
-    mode: 'subscription',
+    submit_type: 'donate',
     payment_method_types: ['card'],
     line_items: [
       {
-        price: priceID,
+        name: 'Donation',
+        amount: amount,
+        currency: 'usd',
         quantity: 1,
       },
     ],
-
-    success_url: `${ORIGIN_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+    success_url: `${ORIGIN_URL}/donationcomplete?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${ORIGIN_URL}/`,
   }
   return await stripe.checkout.sessions.create(params)
@@ -36,6 +37,23 @@ export async function createMonthlyCheckoutSession(priceID: string) {
     ],
 
     success_url: `${ORIGIN_URL}/donationcomplete?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${ORIGIN_URL}/`,
+  }
+  return await stripe.checkout.sessions.create(params)
+}
+
+export async function createGuildCheckoutSession(priceID: string) {
+  const params: Stripe.Checkout.SessionCreateParams = {
+    mode: 'subscription',
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price: priceID,
+        quantity: 1,
+      },
+    ],
+
+    success_url: `${ORIGIN_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${ORIGIN_URL}/`,
   }
   return await stripe.checkout.sessions.create(params)

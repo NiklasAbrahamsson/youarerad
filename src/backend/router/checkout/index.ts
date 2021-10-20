@@ -3,6 +3,7 @@ import { z } from 'zod'
 import {
   createGuildCheckoutSession,
   createMonthlyCheckoutSession,
+  createSingleCheckoutSession,
 } from './d/create-checkout-session'
 import getSessionById from './d/get-checkout'
 
@@ -18,12 +19,12 @@ export const checkoutRouter = trpc
       return await getSessionById(input.id)
     },
   })
-  .mutation('create-guild-session', {
+  .mutation('create-single-session', {
     input: z.object({
-      priceID: z.string(),
+      costInUSD: z.number(),
     }),
     async resolve({ input }) {
-      return await createGuildCheckoutSession(input.priceID)
+      return await createSingleCheckoutSession(input.costInUSD)
     },
   })
   .mutation('create-monthly-session', {
@@ -32,5 +33,13 @@ export const checkoutRouter = trpc
     }),
     async resolve({ input }) {
       return await createMonthlyCheckoutSession(input.priceID)
+    },
+  })
+  .mutation('create-guild-session', {
+    input: z.object({
+      priceID: z.string(),
+    }),
+    async resolve({ input }) {
+      return await createGuildCheckoutSession(input.priceID)
     },
   })

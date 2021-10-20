@@ -1,10 +1,8 @@
-import { withTRPC } from '@trpc/next'
 import * as Fathom from 'fathom-client'
 import type { AppProps } from 'next/dist/shared/lib/router/router'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import '../styles/globals.css'
-import type { AppRouter } from '@/backend/router'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -27,26 +25,34 @@ function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />
 }
 
+import { withTRPC } from '@trpc/next'
+import { httpBatchLink } from '@trpc/client/links/httpBatchLink'
+import { loggerLink } from '@trpc/client/links/loggerLink'
+import type { AppRouter } from '@/backend/router'
+
+function getBaseUrl() {
+  if (process.browser) return '' // Browser should use current path
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}` // SSR should use vercel url
+
+  return `http://localhost:${process.env.PORT ?? 3000}` // dev SSR should use localhost
+}
+
 export default withTRPC<AppRouter>({
-  config({ ctx }) {
-    /**
-     * If you want to use SSR, you need to use the server's full URL
-     * @link https://trpc.io/docs/ssr
-     */
-    const url = process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}/api/trpc`
-      : 'http://localhost:3000/api/trpc'
+  config() {
+    const url = `${getBaseUrl()}/api/trpc`
 
     return {
-      url,
-      /**
-       * @link https://react-query.tanstack.com/reference/QueryClient
-       */
-      // queryClientConfig: { defaultOptions: { queries: { staleTime: 60 } } },
+      links: [
+        loggerLink({
+          enabled: (opts) =>
+            process.env.NODE_ENV === 'development' ||
+            (opts.direction === 'down' && opts.result instanceof Error),
+        }),
+        httpBatchLink({
+          url,
+        }),
+      ],
     }
   },
-  /**
-   * @link https://trpc.io/docs/ssr
-   */
-  ssr: true,
+  ssr: false, // Disabling SSR via tRPC for now
 })(MyApp)
