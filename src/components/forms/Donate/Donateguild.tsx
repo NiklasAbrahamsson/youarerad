@@ -10,7 +10,7 @@ const stepFour = ' covers an entire month of therapy sessions for two people.'
 
 export default function DonateGuild() {
   const [loading, setLoading] = useState(false)
-  const [input, setInput] = useState({ value: 300 })
+  const [input, setInput] = useState('price_1JXB2OEavBxf0OLSdG6zXsMF')
   const [impact, setImpact] = useState('$30')
   const [message, setMessage] = useState(stepTwo)
 
@@ -18,10 +18,11 @@ export default function DonateGuild() {
 
   const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
     const id = Number(e.currentTarget.id)
-    const value = Number(e.currentTarget.value)
+    const value = String(e.currentTarget.value)
     const provides = e.currentTarget.step
+
     setInput({
-      ...input,
+      ...(input as any),
       value,
     })
     setImpact('$' + Math.floor(id / 10))
@@ -32,7 +33,7 @@ export default function DonateGuild() {
     e.preventDefault()
     setLoading(true)
 
-    const response = await getCheckoutSession.mutateAsync({ priceID: input.value })
+    const response = await getCheckoutSession.mutateAsync({ priceID: input })
 
     const stripe = await getStripe()
     if (stripe !== null) {
