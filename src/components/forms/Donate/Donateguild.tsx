@@ -29,6 +29,8 @@ export default function DonateGuild() {
     setMessage(provides)
   }
 
+  console.log(input)
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
