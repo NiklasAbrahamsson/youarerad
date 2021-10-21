@@ -18,7 +18,10 @@ export default function Sectionheader({
     <div className="max-w-4xl">
       <h5>{subheader}</h5>
       <h2 className="text-rad">
-        <span className={color}>{headerone}</span>
+        <span className={color}>
+          {headerone}
+          {''}
+        </span>
         {Boolean(headertwo) && headertwo}
       </h2>
       {Boolean(bodytext) && <p>{bodytext}</p>}
