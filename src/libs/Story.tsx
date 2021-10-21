@@ -9,8 +9,8 @@ export const Story = [
       <Sectionheader
         color="text-black"
         subheader="Our Story"
-        headerone="We're on a quest"
-        headertwo="to change mental health care."
+        headerone="We're on a quest to change mental health care"
+        headertwo="."
         bodytext="Overwhelmed with their mental health and unable to leave home, our founder hoped to help just one person before leaving this world. Their quest began in the only world they felt they still existed in- The World of Warcraft."
       />
     ),
