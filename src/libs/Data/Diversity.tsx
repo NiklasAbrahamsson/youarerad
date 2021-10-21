@@ -1,12 +1,5 @@
 import { Doughnut } from 'react-chartjs-2'
 
-const options = {
-  layout: {
-    responsive: true,
-    maintainAspectRation: true,
-  },
-}
-
 const eth = {
   labels: ['White', 'Native Indian', 'Black', 'Latin', 'East Asian', 'South East Asian'],
   datasets: [
@@ -63,11 +56,11 @@ const gen = {
 
 const Teamstats = () => (
   <div className="flex-wrap pt-10 sm:grid sm:grid-cols-2 sm:top-0 sm:gap-10 ">
-    <div className="w-2/6">
-      <Doughnut data={gen} options={options} />
+    <div className="">
+      <Doughnut data={gen} />
     </div>
-    <div className="w-2/6">
-      <Doughnut data={eth} options={options} />
+    <div className="">
+      <Doughnut data={eth} />
     </div>
   </div>
 )
