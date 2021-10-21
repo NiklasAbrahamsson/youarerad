@@ -1,29 +1,10 @@
-# Next.js + Tailwind CSS Example
+<h1>Welcome to Rise Above The Disorder's community website!</h1>
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+<h2>About Rise Above The Disorder:</h2>
+<body>We are a non-profit covering the cost of mental health care for people all over the world. Originally founded as a World of Warcraft guild crowdfunding therapy for its members, we have since covered therapy for over 38,000 people. Our goal is to make mental health care free and accessible to everyone. </body>
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
+<h2>About This Github Repository:</h2>
+<body>Our cause has always been the result of many incredible people coming together to make a difference. It's in this same theme we provide our website in its entirety here- to be worked on as a community. From grammatical errors and code optimizations, to major feature additions and complete redesigns; we welcome any and all efforts to improve our site. At this time, all efforts made towards the website will be regarded as volunteer support. If you would like proof of volunteer hours or resume support, please contact at us at Hey@youarerad.org. In the future, we will provide rewards from our partners for project involvement, bug hunting, and UX/design improvements.</body>
 
-## Preview
-
-Preview the example live on [StackBlitz](http://stackblitz.com/):
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+<h2>Credits:</h2>
+A huge thank you to [Open Source Raid Guild(https://osrg.t3.gg/), whose members tirelessly worked to convert our site to Typescript. 
