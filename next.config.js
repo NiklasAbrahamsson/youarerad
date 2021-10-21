@@ -37,11 +37,11 @@ module.exports = withBundleAnalyzer({
 const ContentSecurityPolicy = `
   default-src 'self';
   frame-src 'self' https://checkout.stripe.com https://js.stripe.com https://hooks.stripe.com https://www.linkedin.com;
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://checkout.stripe.com https://js.stripe.com https://cdn.usefathom.com/;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://checkout.stripe.com https://js.stripe.com https://cdn.usefathom.com/ https://app.usefathom.com/#site=2251799817005464;
   child-src *.youtube.com *.google.com;
   style-src 'self' 'unsafe-inline' *.googleapis.com;
   media-src 'self' *.cloudinary.com ;
-  img-src 'self' *.cloudinary.com https://*.stripe.com data: abs.twimg.com https://pbs.twimg.com ton.twimg.com platform.twitter.com https://syndication.twitter.com https://cdn.usefathom.com/;
+  img-src 'self' *.cloudinary.com https://*.stripe.com data: abs.twimg.com https://pbs.twimg.com ton.twimg.com platform.twitter.com https://syndication.twitter.com https://cdn.usefathom.com/ https://app.usefathom.com/#site=2251799817005464;
   connect-src * https://api.stripe.com https://checkout.stripe.com;
   font-src 'self';
 `
