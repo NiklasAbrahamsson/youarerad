@@ -34,6 +34,11 @@ export const Credits = [
     github: 'https://github.com/johnson-jesse',
     image: 'https://res.cloudinary.com/df23ubjbb/image/upload/v1634617462/jj_cutj6t.jpg',
   },
+  {
+    name: 'Jack Meyer',
+    github: 'https://github.com/jackcmeyer',
+    image: 'https://res.cloudinary.com/df23ubjbb/image/upload/v1634977136/18731800_ow0ls5.jpg',
+  },
 ]
 
 export const Enemies = [
