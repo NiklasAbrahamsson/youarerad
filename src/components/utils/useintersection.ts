@@ -8,19 +8,19 @@ type useIntersectionOptions = {
 export const useIntersection = (
   ref: RefObject<HTMLElement>,
   selector: string,
-  handler: (entry: IntersectionObserverEntry, idx: number) => void,
+  handler: (entry: IntersectionObserverEntry, index: number) => void,
   options: useIntersectionOptions
 ) => {
   useEffect(() => {
     const observers: IntersectionObserver[] = []
 
     if (ref.current && typeof IntersectionObserver === 'function') {
-      const handleIntersect = (idx: number) => (entries: IntersectionObserverEntry[]) => {
-        handler(entries[0], idx)
+      const handleIntersect = (index: number) => (entries: IntersectionObserverEntry[]) => {
+        handler(entries[0], index)
       }
 
-      ref.current.querySelectorAll(selector).forEach((node, idx) => {
-        const observer = new IntersectionObserver(handleIntersect(idx), options)
+      ref.current.querySelectorAll(selector).forEach((node, index) => {
+        const observer = new IntersectionObserver(handleIntersect(index), options)
         observer.observe(node)
         observers.push(observer)
       })
