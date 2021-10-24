@@ -8,7 +8,7 @@ const Footer = dynamic(() => import('../components/Footer'))
 export const siteTitle = 'Rise Above The Disorder'
 
 type LayoutProps = {
-  children: ReactNode
+  children?: ReactNode
   description?: string
   pageHeader?: ReactNode
   pageTitle?: string
