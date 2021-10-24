@@ -6,8 +6,8 @@ const OPTIONS: IntersectionObserverInit = {
   threshold: 0,
 }
 
-const useIsVisable = (elementRef: RefObject<HTMLElement>) => {
-  const [isVisable, setIsVisable] = useState(false)
+const useIsVisible = (elementRef: RefObject<HTMLElement>) => {
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     if (elementRef.current) {
@@ -15,7 +15,7 @@ const useIsVisable = (elementRef: RefObject<HTMLElement>) => {
       const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisable(true)
+            setIsVisible(true)
             observer.unobserve(currentElement)
           }
         })
@@ -23,7 +23,7 @@ const useIsVisable = (elementRef: RefObject<HTMLElement>) => {
       observer.observe(elementRef.current)
     }
   }, [elementRef])
-  return isVisable
+  return isVisible
 }
 
-export default useIsVisable
+export default useIsVisible
