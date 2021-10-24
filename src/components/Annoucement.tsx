@@ -8,7 +8,7 @@ export default function Annoucement() {
   }, [])
 
   useEffect(() => {
-    window.localStorage.setItem('bannerstate', String(isBanner))
+    window.localStorage.setItem('bannerstate', JSON.stringify(isBanner))
   }, [isBanner])
 
   const closeBanner = () => {
