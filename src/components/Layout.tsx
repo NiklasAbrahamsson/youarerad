@@ -8,19 +8,14 @@ const Footer = dynamic(() => import('../components/Footer'))
 export const siteTitle = 'Rise Above The Disorder'
 
 type LayoutProps = {
+  children: ReactNode
   description?: string
   pageHeader?: ReactNode
   pageTitle?: string
   pageLink?: string
 }
 
-const Layout: React.FC<LayoutProps> = ({
-  children,
-  pageHeader,
-  pageTitle,
-  pageLink,
-  description,
-}) => {
+const Layout = ({ children, pageHeader, pageTitle, pageLink, description }: LayoutProps) => {
   const elemRef = useRef<HTMLDivElement>(null)
   const isVisable = useIsVisable(elemRef)
 
