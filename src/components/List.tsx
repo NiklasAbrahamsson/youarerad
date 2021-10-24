@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import { Board } from '@/libs/Data/Board'
+import { BoardItems } from '@/libs/Data/Board'
 
-export default function List({ items }: { items: typeof Board }) {
+export default function List({ items }: { items: typeof BoardItems }) {
   return (
     <div className="overflow-hidden sm:rounded-xl">
       <ul role="list" className="divide-y divide-white">

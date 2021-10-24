@@ -1,4 +1,4 @@
-export const Board = [
+export const BoardItems = [
   {
     name: 'George "HotshotGG" Georgallidis',
     role: 'Founder, Counter Logic Gaming',

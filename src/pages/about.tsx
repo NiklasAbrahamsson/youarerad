@@ -8,7 +8,7 @@ import List from '../components/List'
 import Pageheader from '../components/Pageheader'
 import Sectionheader from '../components/Sectionheader'
 import Transparency from '../components/Transparencytab'
-import { Board } from '../libs/Data/Board'
+import { BoardItems } from '../libs/Data/Board'
 import { Staff } from '../libs/Data/Staff'
 import { Story } from '../libs/Story'
 
@@ -190,7 +190,7 @@ export default function About() {
               <h2> Heroes in-game and IRL.</h2>
             </div>
             <div className="col-span-2">
-              <List items={Board} />
+              <List items={BoardItems} />
             </div>
           </div>
         </section>
