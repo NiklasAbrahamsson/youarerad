@@ -53,14 +53,14 @@ export default function Careers() {
             headertwo="That means you, too!"
           />
           <div className="max-w-screen-md mx-auto mt-16 overflow-hidden text-center divide-y divide-gray-200 shadow sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px rounded-xl">
-            {perks.map((context, contextIdx) => (
+            {perks.map((context, index) => (
               <div
                 key={context.id}
                 className={classNames(
-                  contextIdx === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '',
-                  contextIdx === 1 ? 'sm:rounded-tr-lg' : '',
-                  contextIdx === perks.length - 2 ? 'sm:rounded-bl-lg' : '',
-                  contextIdx === perks.length - 1
+                  index === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '',
+                  index === 1 ? 'sm:rounded-tr-lg' : '',
+                  index === perks.length - 2 ? 'sm:rounded-bl-lg' : '',
+                  index === perks.length - 1
                     ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none'
                     : '',
                   'relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'

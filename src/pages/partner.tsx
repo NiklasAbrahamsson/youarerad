@@ -68,11 +68,11 @@ function classNames(...classes: string[]) {
 }
 
 export default function Partner() {
-  const [openForm, setOpenForm] = useState(false)
+  const [isFormOpen, setIsFormOpen] = useState(false)
 
   const handleClick = () => {
-    if (!openForm) {
-      return setOpenForm(true)
+    if (!isFormOpen) {
+      return setIsFormOpen(true)
     }
 
     document.getElementById('name')?.focus()
@@ -176,7 +176,7 @@ export default function Partner() {
           </div>
         </section>
       </div>
-      {openForm ? <PartnershipForm /> : ''}
+      {isFormOpen ? <PartnershipForm /> : ''}
     </Layout>
   )
 }

@@ -44,9 +44,5 @@ type FadeinsectionsProps = {
 }
 
 export default function Fadeinsections({ children }: FadeinsectionsProps) {
-  return (
-    <>
-      <FadeInWhenVisible>{children}</FadeInWhenVisible>
-    </>
-  )
+  return <FadeInWhenVisible>{children}</FadeInWhenVisible>
 }

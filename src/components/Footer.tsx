@@ -76,10 +76,10 @@ export default function Footer() {
       </div>
       <div className="pt-4">
         <nav className="flex flex-wrap justify-center" aria-label="Footer">
-          {navigation.main.map((item) => (
-            <div key={item.href} className="relative text-base lowercase group">
-              <Link href={item.href}>
-                <a className="grid grid-flow-row mx-4 mt-4 underline">{item.name}</a>
+          {navigation.main.map((navItem) => (
+            <div key={navItem.href} className="relative text-base lowercase group">
+              <Link href={navItem.href}>
+                <a className="grid grid-flow-row mx-4 mt-4 underline">{navItem.name}</a>
               </Link>
             </div>
           ))}

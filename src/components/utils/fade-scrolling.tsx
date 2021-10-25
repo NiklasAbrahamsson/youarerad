@@ -13,9 +13,9 @@ export default function Fadescrolling({ children, videos }: FadescrollingProps) 
   useIntersection(
     ScrollerContainerRef,
     'h3',
-    (entry, idx) => {
+    (entry, index) => {
       if (entry.intersectionRatio === 1) {
-        setActiveVideo(idx)
+        setActiveVideo(index)
       }
     },
     { threshold: 1, rootMargin: '0px 0px -50% 0px' }

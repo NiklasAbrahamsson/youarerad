@@ -3,7 +3,7 @@ import { supabase } from '../../utils/supabaseClient'
 import { Session } from '@supabase/gotrue-js'
 
 export default function Account({ session }: { session: Session }) {
-  const [loading, setLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
   const [username, setUsername] = useState('')
   const [website, setWebsite] = useState('')
   const [avatar_url, setAvatarUrl] = useState('')
@@ -14,7 +14,7 @@ export default function Account({ session }: { session: Session }) {
 
   async function getProfile() {
     try {
-      setLoading(true)
+      setIsLoading(true)
       const user = supabase.auth.user()! // Is null possible?
 
       let { data, error, status } = await supabase
@@ -35,7 +35,7 @@ export default function Account({ session }: { session: Session }) {
     } catch (error: any) {
       alert(error.message)
     } finally {
-      setLoading(false)
+      setIsLoading(false)
     }
   }
 
@@ -49,7 +49,7 @@ export default function Account({ session }: { session: Session }) {
     avatar_url: string
   }) {
     try {
-      setLoading(true)
+      setIsLoading(true)
       const user = supabase.auth.user()! // Is null possible?
 
       const updates = {
@@ -70,7 +70,7 @@ export default function Account({ session }: { session: Session }) {
     } catch (error: any) {
       alert(error.message)
     } finally {
-      setLoading(false)
+      setIsLoading(false)
     }
   }
 
@@ -103,9 +103,9 @@ export default function Account({ session }: { session: Session }) {
         <button
           className="block button primary"
           onClick={() => updateProfile({ username, website, avatar_url })}
-          disabled={loading}
+          disabled={isLoading}
         >
-          {loading ? 'Loading ...' : 'Update'}
+          {isLoading ? 'Loading ...' : 'Update'}
         </button>
       </div>
 

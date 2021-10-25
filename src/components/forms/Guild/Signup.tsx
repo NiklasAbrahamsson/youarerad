@@ -2,19 +2,19 @@ import { useState } from 'react'
 import { supabase } from '../../utils/supabaseClient'
 
 export default function Signup() {
-  const [loading, setLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const [email, setEmail] = useState('')
 
   const handleLogin = async (email: string) => {
     try {
-      setLoading(true)
+      setIsLoading(true)
       const { error } = await supabase.auth.signIn({ email })
       if (error) throw error
       alert('Check your email for the login link!')
     } catch (error: any) {
       alert(error.error_description || error.message)
     } finally {
-      setLoading(false)
+      setIsLoading(false)
     }
   }
 
@@ -39,9 +39,9 @@ export default function Signup() {
               handleLogin(email)
             }}
             className="block button"
-            disabled={loading}
+            disabled={isLoading}
           >
-            <span>{loading ? 'Loading' : 'Send magic link'}</span>
+            <span>{isLoading ? 'Loading' : 'Send magic link'}</span>
           </button>
         </div>
       </div>

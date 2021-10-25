@@ -132,14 +132,17 @@ export default function Donate() {
           link="/about"
           media={
             <div className="flex">
-              {Partners.map((index) => (
-                <div key={index.name} className="flex justify-center col-span-1 px-4 py-8 lg:py-0 ">
-                  <Link href={index.link}>
+              {Partners.map((partner) => (
+                <div
+                  key={partner.name}
+                  className="flex justify-center col-span-1 px-4 py-8 lg:py-0 "
+                >
+                  <Link href={partner.link}>
                     <a>
                       <Image
-                        key={index.name}
-                        alt={index.alt}
-                        src={index.logo}
+                        key={partner.name}
+                        alt={partner.alt}
+                        src={partner.logo}
                         width="125"
                         height="125"
                         objectFit="cover"
