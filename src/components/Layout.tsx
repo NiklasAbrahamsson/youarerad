@@ -51,7 +51,7 @@ const Layout = ({ children, pageHeader, pageTitle, pageLink, description }: Layo
         <header>{pageHeader}</header>
         <main>{children}</main>
         <footer ref={elemRef}>
-          {isVisible && console.log('visable')}
+          {isVisible}
           <Footer />
         </footer>
       </div>

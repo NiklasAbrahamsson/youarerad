@@ -2,21 +2,21 @@ import { SpeakerphoneIcon, XIcon } from '@heroicons/react/solid'
 import { useEffect, useState } from 'react'
 
 export default function Annoucement() {
-  const [isBanner, setIsBanner] = useState(true)
+  const [isBannerVisible, setBannerVisibile] = useState(true)
   useEffect(() => {
-    setIsBanner(JSON.parse(window.localStorage.getItem('bannerstate')!))
+    setBannerVisibile(JSON.parse(window.localStorage.getItem('bannerstate')!))
   }, [])
 
   useEffect(() => {
-    window.localStorage.setItem('bannerstate', JSON.stringify(isBanner))
-  }, [isBanner])
+    window.localStorage.setItem('bannerstate', JSON.stringify(isBannerVisible))
+  }, [isBannerVisible])
 
   const closeBanner = () => {
-    return setIsBanner(true)
+    return setBannerVisibile(true)
   }
 
   return (
-    <div className={isBanner === false ? '' : 'hidden'}>
+    <div className={isBannerVisible === false ? '' : 'hidden'}>
       <div className="fixed inset-x-0 bottom-0">
         <div className="bg-indigo-600">
           <div className="px-3 py-3 mx-auto max-w-7xl sm:px-6 lg:px-8">

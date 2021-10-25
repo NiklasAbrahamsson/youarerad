@@ -39,6 +39,11 @@ export const Credits = [
     github: 'https://github.com/jackcmeyer',
     image: 'https://res.cloudinary.com/df23ubjbb/image/upload/v1634977136/18731800_ow0ls5.jpg',
   },
+  {
+    name: 'Tiger Abrodi',
+    github: 'https://github.com/tigerabrodi',
+    image: 'https://res.cloudinary.com/df23ubjbb/image/upload/v1635193525/49603590_ftairy.jpg',
+  },
 ]
 
 export const Enemies = [
