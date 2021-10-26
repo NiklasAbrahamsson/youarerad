@@ -1,5 +1,3 @@
-import Link from 'next/link'
-import dynamic from 'next/dynamic'
 import Button from '@/components/Button'
 import Layout from '@/components/Layout'
 import Programs from '@/components/Programs'
@@ -7,6 +5,8 @@ import Sectionheader from '@/components/Sectionheader'
 import Sectiontext from '@/components/Sectiontext'
 import Carousel from '@/components/utils/Carousel'
 import Fadeinsections from '@/components/utils/fadesections'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
 const VideoPlayer = dynamic(() => import('@/components/utils/videoplayer'), { ssr: false })
 
@@ -28,7 +28,7 @@ export default function Home() {
         <div className="relative text-white bg-black">
           <Fadeinsections>
             <section className="relative mx-auto text-center">
-              <h2>38,000 peopled helped across 133 countries.</h2>
+              <h2>38,000 people helped across 133 countries.</h2>
               <p className="mx-auto text-center">
                 We’re creating a world where universal mental health care is one day a reality.
               </p>
