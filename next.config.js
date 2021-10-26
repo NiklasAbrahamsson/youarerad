@@ -2,7 +2,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-module.exports = withBundleAnalyzer({
+module.exports = {
+  swcMinify: true,
   async headers() {
     return [
       {
@@ -32,7 +33,7 @@ module.exports = withBundleAnalyzer({
     locales: ['en-US'],
     defaultLocale: 'en-US',
   },
-})
+}
 // https://securityheaders.com
 const ContentSecurityPolicy = `
   default-src 'self';
