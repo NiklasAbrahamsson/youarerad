@@ -88,13 +88,25 @@ export default function Footer() {
 
       <div className="text-center">
         <p className="pt-4">© Copyright Rise Above The Disorder 2021</p>
-        <div className="flex flex-row items-center justify-center mx-auto mt-3 space-x-5">
+
+        <div className="flex flex-row items-center justify-center mx-auto mt-3 mb-3 space-x-5">
           {socials.map((social) => (
             <a href={social.href} key={social.logo}>
               <Image src={social.logo} width="40" height="40" alt={social.alt} />
             </a>
           ))}
         </div>
+        <Link href="https://vercel.com/home?utm_source=youarerad&utm_campaign=oss">
+          <a target="_blank" className="group">
+            <Image
+              className="duration-300 group-hover:ring-2 group-hover:ring-indigo-500 group-hover:invert"
+              src="https://res.cloudinary.com/df23ubjbb/image/upload/v1635261153/Vercel.svg"
+              alt="Click to check out Vercel"
+              width="200px"
+              height="50px"
+            />
+          </a>
+        </Link>
       </div>
     </div>
   )

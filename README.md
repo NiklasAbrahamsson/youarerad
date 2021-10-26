@@ -16,8 +16,7 @@ We are a non-profit covering the cost of mental health care for people all over 
   </a>
 </div>
 
-
-## About This Repository 
+## About This Repository
 
 Our cause has always been the result of many incredible people coming together to make a difference. It's in this same theme we provide our website in its entirety here- to be worked on as a community. From grammatical errors and code optimizations, to major feature additions and complete redesigns; we welcome any and all efforts to improve our site.
 
@@ -30,6 +29,12 @@ Our cause has always been the result of many incredible people coming together t
   </a>
   </li>
 </br>
+
+ <li>
+  <a href="https://vercel.com/home?utm_source=youarerad&utm_campaign=oss">
+  <img src="https://res.cloudinary.com/df23ubjbb/image/upload/v1635262499/Github/vercel-icon-dark_pdka2i.svg" width="16px" alt="Vercel website link." /><span> Vercel</span>
+  </a>
+  </li>
 
   <li>
 <a href="https://www.typescriptlang.org/">
@@ -51,7 +56,6 @@ Our cause has always been the result of many incredible people coming together t
   </a>
   </li>
   </ul>
-  
 
 ## Credits
 
