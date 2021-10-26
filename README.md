@@ -35,6 +35,7 @@ Our cause has always been the result of many incredible people coming together t
   <img src="https://res.cloudinary.com/df23ubjbb/image/upload/v1635262499/Github/vercel-icon-dark_pdka2i.svg" width="16px" alt="Vercel website link." /><span> Vercel</span>
   </a>
   </li>
+  </br>
 
   <li>
 <a href="https://www.typescriptlang.org/">
