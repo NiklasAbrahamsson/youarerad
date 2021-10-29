@@ -30,10 +30,9 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     try {
       event = stripe.webhooks.constructEvent(buf.toString(), sig, webhookSecret)
-    } catch (err: any) {
-      // On error, log and return the error message.
-      console.log(`❌ Error message: ${err.message}`)
-      res.status(400).send(`Webhook Error: ${err.message}`)
+    } catch (err) {
+      console.log(`❌ Error message`)
+      res.status(400).send(`Webhook Error`)
       return
     }
 
@@ -41,8 +40,17 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     console.log('✅ Success:', event.id)
 
     // Cast event data to Stripe object.
-    if (event.type === 'checkout.session.completed') {
-      console.log('Success:', event.id)
+    if (event.type === 'payment_intent.succeeded') {
+      const paymentIntent = event.data.object as Stripe.PaymentIntent
+      console.log(`💰 PaymentIntent status: ${paymentIntent.status}`)
+    } else if (event.type === 'payment_intent.payment_failed') {
+      const paymentIntent = event.data.object as Stripe.PaymentIntent
+      console.log(`❌ Payment failed: ${paymentIntent.last_payment_error?.message}`)
+    } else if (event.type === 'charge.succeeded') {
+      const charge = event.data.object as Stripe.Charge
+      console.log(`💵 Charge id: ${charge.id}`)
+    } else {
+      console.warn(`🤷‍♀️ Unhandled event type: ${event.type}`)
     }
 
     // Return a response to acknowledge receipt of the event.
