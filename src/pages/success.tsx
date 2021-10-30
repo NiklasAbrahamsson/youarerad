@@ -1,9 +1,9 @@
-import { trpc } from '@/utils/trpc-client'
+import { trpc } from '@/libs/utils/trpc-client'
 import { Session } from '@supabase/gotrue-js'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Account from '../components/forms/Guild/Account'
-import { supabase } from '../components/utils/supabaseClient'
+import { supabase } from '../libs/utils/supabaseClient'
 
 const Success: React.FC<{ id: string; session: Session | null }> = ({ id, session }) => {
   const { data, error } = trpc.useQuery(['checkout.get-guild-session', { id }])

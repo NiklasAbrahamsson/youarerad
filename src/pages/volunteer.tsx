@@ -8,7 +8,7 @@ import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { Fragment, useState } from 'react'
 
-const VideoPlayer = dynamic(() => import('@/components/utils/videoplayer'), { ssr: false })
+const VideoPlayer = dynamic(() => import('@/components/videoplayer'), { ssr: false })
 
 const tabs = [
   {

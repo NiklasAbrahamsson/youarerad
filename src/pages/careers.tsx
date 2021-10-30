@@ -13,7 +13,7 @@ import Layout from '../components/Layout'
 import Pageheader from '../components/Pageheader'
 import Sectionheader from '../components/Sectionheader'
 
-const VideoPlayer = dynamic(() => import('@/components/utils/videoplayer'), { ssr: false })
+const VideoPlayer = dynamic(() => import('@/components/videoplayer'), { ssr: false })
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')

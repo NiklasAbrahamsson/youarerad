@@ -21,7 +21,7 @@ export default function Sectionheader({
         <span className={color}>
           {headerone}
           {''}
-        </span>
+        </span>{' '}
         {Boolean(headertwo) && headertwo}
       </h2>
       {Boolean(bodytext) && <p>{bodytext}</p>}

@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import Ctahover from '../components/lotties/cta'
 import Pageheader from '../components/Pageheader'
 
-const VideoPlayer = dynamic(() => import('@/components/utils/videoplayer'), { ssr: false })
+const VideoPlayer = dynamic(() => import('@/components/videoplayer'), { ssr: false })
 
 const tabs = [
   {

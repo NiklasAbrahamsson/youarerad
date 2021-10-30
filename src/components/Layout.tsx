@@ -1,7 +1,7 @@
 import Head from 'next/dist/shared/lib/head'
 import dynamic from 'next/dynamic'
 import React, { ReactNode, useRef } from 'react'
-import useIsVisible from './utils/isvisible'
+import useIsVisible from '../libs/utils/isvisible'
 const Navbar = dynamic(() => import('../components/Navbar'))
 const Footer = dynamic(() => import('../components/Footer'))
 

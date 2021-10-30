@@ -4,10 +4,10 @@ import Button from '../components/Button'
 import Layout from '../components/Layout'
 import Pageheader from '../components/Pageheader'
 import Sectionheader from '../components/Sectionheader'
-import Carousel from '../components/utils/Carousel'
-import Fadescrolling from '../components/utils/fade-scrolling'
+import Carousel from '../components/Carousel'
+import Fadescrolling from '../libs/utils/fade-scrolling'
 
-const VideoPlayer = dynamic(() => import('@/components/utils/videoplayer'), { ssr: false })
+const VideoPlayer = dynamic(() => import('@/components/videoplayer'), { ssr: false })
 
 const videos = [
   <VideoPlayer key="1" publicId="General%20Media/MattWaldenCharithon" />,

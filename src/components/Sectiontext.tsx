@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
 import Link from 'next/link'
-import Lazysections from './utils/lazysections'
+import Lazysections from '../libs/utils/lazysections'
 
 type SectiontextProps = {
   subheader?: string
@@ -30,9 +30,9 @@ export default function Sectiontext({
       <div className="flex flex-col-reverse items-center md:justify-between md:grid md:grid-cols-2 md:grid-flow-col-dense md:gap-20 md:space-y-0">
         <div className="relative max-w-xl mt-4 md:mt-0">
           <h5>{subheader}</h5>
-          <h3>
+          <h3 className="block">
             {headerone}{' '}
-            <span className="block text-transparent bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text">
+            <span className="text-transparent bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text">
               {headertwo}
             </span>
           </h3>

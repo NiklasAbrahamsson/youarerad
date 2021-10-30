@@ -3,12 +3,12 @@ import Layout from '@/components/Layout'
 import Programs from '@/components/Programs'
 import Sectionheader from '@/components/Sectionheader'
 import Sectiontext from '@/components/Sectiontext'
-import Carousel from '@/components/utils/Carousel'
-import Fadeinsections from '@/components/utils/fadesections'
+import Carousel from '@/components/Carousel'
+import Fadeinsections from '@/libs/utils/fadesections'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 
-const VideoPlayer = dynamic(() => import('@/components/utils/videoplayer'), { ssr: false })
+const VideoPlayer = dynamic(() => import('@/components/videoplayer'), { ssr: false })
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
         pageLink="/"
         description="We are a non-profit covering the cost of mental health care for thousands of people around the world."
       >
-        <section className="lg:h-[80vh] pt-0 pb-32 lg:pt-40">
+        <section className="pt-0 pb-32 lg:pt-40">
           <h1 className="display">
             We are a nonprofit covering the cost of mental health care for{' '}
             <span className="text-rad">everyone.</span>

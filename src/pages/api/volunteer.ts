@@ -1,4 +1,4 @@
-import { supabase } from '../../components/utils/supabaseClient'
+import { supabase } from '../../libs/utils/supabaseClient'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { User } from '@/types/api-schema'
 

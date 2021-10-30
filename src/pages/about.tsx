@@ -12,7 +12,7 @@ import { BoardItems } from '../libs/Data/Board'
 import { Staff } from '../libs/Data/Staff'
 import { Story } from '../libs/Story'
 
-const VideoPlayer = dynamic(() => import('@/components/utils/videoplayer'), { ssr: false })
+const VideoPlayer = dynamic(() => import('@/components/videoplayer'), { ssr: false })
 
 export default function About() {
   const [viewportRef, embla] = useEmblaCarousel({

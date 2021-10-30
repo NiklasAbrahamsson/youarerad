@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { supabase } from '../../utils/supabaseClient'
+import { supabase } from '../../../libs/utils/supabaseClient'
 import { Session } from '@supabase/gotrue-js'
 
 export default function Account({ session }: { session: Session }) {

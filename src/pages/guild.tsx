@@ -4,7 +4,7 @@ import DonateGuild from '../components/forms/Donate/Donateguild'
 import Layout from '../components/Layout'
 import Pageheader from '../components/Pageheader'
 
-const VideoPlayer = dynamic(() => import('@/components/utils/videoplayer'), { ssr: false })
+const VideoPlayer = dynamic(() => import('@/components/videoplayer'), { ssr: false })
 
 export default function Guild() {
   return (

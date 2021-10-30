@@ -17,7 +17,7 @@ class MyDocument extends Document {
             }}
           />
         </Head>
-        <body>
+        <body className="antialiased text-black">
           <Main />
           <NextScript />
         </body>

@@ -5,10 +5,10 @@ import Layout from '../components/Layout'
 import Pageheader from '../components/Pageheader'
 import Sectionheader from '../components/Sectionheader'
 import Sectiontext from '../components/Sectiontext'
-import Lazysections from '../components/utils/lazysections'
-import Twitter from '../components/utils/Twitter'
+import Lazysections from '../libs/utils/lazysections'
+import Twitter from '../components/Twitter'
 
-const VideoPlayer = dynamic(() => import('../components/utils/videoplayer'), { ssr: false })
+const VideoPlayer = dynamic(() => import('../components/videoplayer'), { ssr: false })
 
 const faqs = [
   {

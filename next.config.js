@@ -2,7 +2,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-module.exports = {
+module.exports = withBundleAnalyzer({
   swcMinify: true,
   async headers() {
     return [
@@ -33,12 +33,12 @@ module.exports = {
     locales: ['en-US'],
     defaultLocale: 'en-US',
   },
-}
+})
 // https://securityheaders.com
 const ContentSecurityPolicy = `
   default-src 'self';
   frame-src 'self' https://checkout.stripe.com https://js.stripe.com https://hooks.stripe.com https://www.linkedin.com;
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://checkout.stripe.com https://js.stripe.com https://cdn.usefathom.com/ https://app.usefathom.com/#site=2251799817005464;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdn.weglot.com/weglot.min.js https://checkout.stripe.com https://js.stripe.com https://cdn.usefathom.com/ https://app.usefathom.com/#site=2251799817005464;
   child-src *.youtube.com *.google.com;
   style-src 'self' 'unsafe-inline' *.googleapis.com;
   media-src 'self' *.cloudinary.com ;
