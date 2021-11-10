@@ -33,11 +33,9 @@ const Layout = ({ children, pageHeader, pageTitle, pageLink, description }: Layo
         <link rel="cannonical" href={'https://youarerad.org/' + { pageLink }} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.youarerad.org/radlogo.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@youarerad" />
+
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image:src" content="https://www.youarerad.org/radtwitter.png" />
         <meta
           name="twitter:image:alt"
           content="Rise Above The Disorder's current logo. A brain shaped from a heart."
