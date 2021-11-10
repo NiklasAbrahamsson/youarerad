@@ -24,23 +24,20 @@ const Layout = ({ children, pageHeader, pageTitle, pageLink, description }: Layo
       <Head>
         <title>{pageTitle}</title>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
-        <meta
-          name="keywords"
-          content="mental health, wellness, nonprofit, charity, gaming, esports, "
-        ></meta>
         <meta name="description" content={description} />
         <meta property="og:title" content={pageTitle} />
+        <meta property="og:site_name" content="Rise Above The Disorder" />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={'https://youarerad.org/' + { pageLink }} />
+        <link rel="cannonical" href={'https://youarerad.org/' + { pageLink }} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/radlogo.png" />
-        <meta name="twitter:card" content="summary" />
+        <meta property="og:image" content="https://www.youarerad.org/radlogo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@youarerad" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image:src" content="/radmini.png" />
+        <meta name="twitter:image:src" content="https://www.youarerad.org/radlogo.png" />
         <meta
           name="twitter:image:alt"
           content="Rise Above The Disorder's current logo. A brain shaped from a heart."
