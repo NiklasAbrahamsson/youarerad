@@ -18,7 +18,7 @@ export default function Annoucement() {
   return (
     <div className={isBannerVisible === false ? '' : 'hidden'}>
       <div className="fixed inset-x-0 bottom-0">
-        <div className="bg-indigo-600">
+        <div className="bg-indigo-500">
           <div className="px-3 py-3 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div className="flex flex-wrap items-center justify-between">
               <div className="flex items-center flex-1 w-0">
