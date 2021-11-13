@@ -33,7 +33,14 @@ const Layout = ({ children, pageHeader, pageTitle, pageLink, description }: Layo
         <link rel="cannonical" href={'https://youarerad.org/' + { pageLink }} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.youarerad.org/radlogo.png" />
-
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@youarerad" />
+        <meta name="twitter:image:src" content="https://www.youarerad.org/radtwitter.png" />
+        <meta
+          name="keywords"
+          content="mental health, wellness, nonprofit, charity, gaming, esports, "
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={description} />
         <meta

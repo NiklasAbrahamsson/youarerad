@@ -57,7 +57,7 @@ const socials: Array<SocialsPlatforms> = [
 export default function Footer() {
   return (
     <div className="w-full px-4 py-16 mx-auto lg:max-w-xl lg:px-0">
-      <div id="footer" className="mx-auto lg:max-w-md">
+      <div id="footer" className="mx-auto sm:max-w-md ">
         <Mayhover />
         <h2 className="sr-only">Footer</h2>
       </div>

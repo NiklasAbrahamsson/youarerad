@@ -15,20 +15,6 @@ class MyDocument extends Document {
           <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
           <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
           <link href="/favicon-16x16" rel="icon" sizes="16x16" type="image/png" />
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:site" content="@youarerad" />
-          <meta name="twitter:image:src" content="https://www.youarerad.org/radtwitter.png" />
-          <meta
-            name="keywords"
-            content="mental health, wellness, nonprofit, charity, gaming, esports, "
-          />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <script async type="text/javascript" src="https://cdn.weglot.com/weglot.min.js" />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: 'Weglot.initialize({api_key:"wg_0f763ce0b95670ae3cec6ef2c30ccffc3"})',
-            }}
-          />
         </Head>
         <body className="antialiased text-black">
           <Main />

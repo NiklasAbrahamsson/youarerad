@@ -384,7 +384,7 @@ const Programs = () => {
                     to help others.
                   </p>
                   <div className="relative inline-flex flex-row items-center mt-2 text-lg group">
-                    <Link href="partner">
+                    <Link href="/partner">
                       <a className="inline-flex text-xl text-blue-700 transition-all duration-500">
                         Learn more about our mental health benefits.
                       </a>

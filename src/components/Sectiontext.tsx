@@ -31,10 +31,7 @@ export default function Sectiontext({
         <div className="relative max-w-xl mt-4 md:mt-0">
           <h5>{subheader}</h5>
           <h3 className="block">
-            {headerone}{' '}
-            <span className="text-transparent bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text">
-              {headertwo}
-            </span>
+            {headerone} <span className="text-rad">{headertwo}</span>
           </h3>
           {body && <p>{body}</p>}
           {button && <div>{button}</div>}
