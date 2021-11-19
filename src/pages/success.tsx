@@ -1,3 +1,4 @@
+import Login from '@/components/guildportal/login'
 import { trpc } from '@/libs/utils/trpc-client'
 import { Session } from '@supabase/gotrue-js'
 import { useRouter } from 'next/router'
@@ -37,7 +38,12 @@ const SuccessWrapper = () => {
     query: { session_id },
   } = useRouter()
 
-  if (!session_id || typeof session_id !== 'string') return <div>Error: Bad session ID</div>
+  if (!session_id || typeof session_id !== 'string')
+    return (
+      <div>
+        <Login />
+      </div>
+    )
 
   return <Success id={session_id} session={session} />
 }

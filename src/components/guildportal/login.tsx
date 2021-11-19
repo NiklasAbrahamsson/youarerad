@@ -1,6 +1,24 @@
 import Image from 'next/image'
+import { useState } from 'react'
+import { supabase } from '@/libs/utils/supabaseClient'
 
 export default function Login() {
+  const [loading, setLoading] = useState(false)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [errormessage, setErrorMessage] = useState(false)
+  const handleLogin = async (email: string, password: string) => {
+    try {
+      setLoading(true)
+      const { error } = await supabase.auth.signIn({ email, password })
+      if (error) throw error
+    } catch (error) {
+      console.log(error)
+      setErrorMessage(true)
+    } finally {
+      setLoading(false)
+    }
+  }
   return (
     <div>
       <div className="flex flex-col items-center h-screen md:flex-row">
@@ -21,7 +39,14 @@ export default function Login() {
             <form className="mt-6 space-y-4">
               <div>
                 <label htmlFor="email">Email Address:</label>
-                <input className="mt-2" name="email" type="email" required autoComplete="email" />
+                <input
+                  className="mt-2"
+                  name="email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
               <div>
                 <label htmlFor="password">Password:</label>
@@ -31,8 +56,10 @@ export default function Login() {
                   type="password"
                   required
                   autoComplete="email"
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
+              <div>{errormessage ? 'login unsuccessful' : ''}</div>
               <div className="mt-2 text-right">
                 <a
                   href="#"
@@ -41,7 +68,16 @@ export default function Login() {
                   Forgot Password?
                 </a>
               </div>
-              <button className="form-button">Log In</button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleLogin(email, password)
+                }}
+                disabled={loading}
+                className="form-button"
+              >
+                Log In
+              </button>
             </form>
             <hr className="w-full my-12 border-gray-400" />
             <h5 className="-mt-6">Or Login With:</h5>
