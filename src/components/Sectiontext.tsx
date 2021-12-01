@@ -30,7 +30,7 @@ export default function Sectiontext({
       <div className="flex flex-col-reverse items-center md:justify-between md:grid md:grid-cols-2 md:grid-flow-col-dense md:gap-20 md:space-y-0">
         <div className="relative max-w-xl mt-4 md:mt-0">
           <h5>{subheader}</h5>
-          <h3 className="block">
+          <h3 className="grid">
             {headerone} <span className="text-rad">{headertwo}</span>
           </h3>
           {body && <p>{body}</p>}
@@ -42,7 +42,7 @@ export default function Sectiontext({
                   {learn}
                 </a>
               </Link>
-              <div className="absolute h-0.5 w-full -bottom-1 scale-x-0  bg-gradient-to-r z-0 from-pink-400 to-blue-400 group-hover:scale-x-100  transition-all duration-200 ease-out" />
+              <div className="absolute h-0.5 w-full -bottom-1 scale-x-0 bg-gradient-to-r z-0 from-pink-400 to-blue-400 group-hover:scale-x-100  transition-all duration-200 ease-out" />
             </div>
           )}
         </div>
