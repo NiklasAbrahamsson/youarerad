@@ -1,5 +1,6 @@
 import * as Fathom from 'fathom-client'
 import type { AppProps } from 'next/dist/shared/lib/router/router'
+import { IdProvider } from '@radix-ui/react-id'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import '../styles/globals.css'
@@ -22,7 +23,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [router])
 
-  return <Component {...pageProps} />
+  return (
+    <IdProvider>
+      <Component {...pageProps} />
+    </IdProvider>
+  )
 }
 
 import { withTRPC } from '@trpc/next'
