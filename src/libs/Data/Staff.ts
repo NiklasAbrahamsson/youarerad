@@ -69,7 +69,7 @@ export const Staff = [
     name: 'Renn Criswell',
     title: 'Clinical Social Work I',
     salary: '$15/hr',
-    picture: 'https://res.cloudinary.com/df23ubjbb/image/upload/v1633453742/RennCriswell.jpg',
+    picture: 'https://res.cloudinary.com/df23ubjbb/image/upload/v1638482706/Ren_z6mj6n.jpg',
   },
 
   {
