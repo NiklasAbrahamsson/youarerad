@@ -1,4 +1,5 @@
-import Document, { Head, Html, Main, NextScript } from 'next/document'
+import DeferNextScript from '@/libs/utils/deferScripts'
+import Document, { Head, Html, Main } from 'next/document'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
@@ -18,7 +19,7 @@ class MyDocument extends Document {
         </Head>
         <body className="antialiased text-black">
           <Main />
-          <NextScript />
+          <DeferNextScript />
         </body>
       </Html>
     )

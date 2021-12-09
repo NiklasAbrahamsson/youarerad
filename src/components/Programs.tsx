@@ -393,13 +393,15 @@ const Programs = () => {
                   </div>
                 </div>
                 <div className={openTab === 3 ? 'lg:hidden flex py-10' : 'hidden'} id="link3">
-                  <iframe
-                    className="linkedin"
-                    src="https://www.linkedin.com/embed/feed/update/urn:li:share:6759920948922732544"
-                    frameBorder="0"
-                    allowFullScreen={false}
-                    title="Embedded post"
-                  />
+                  {openTab === 3 && (
+                    <iframe
+                      className="linkedin"
+                      src="https://www.linkedin.com/embed/feed/update/urn:li:share:6759920948922732544"
+                      frameBorder="0"
+                      allowFullScreen={false}
+                      title="Embedded post"
+                    />
+                  )}
                 </div>
               </li>
             </ul>
@@ -677,13 +679,15 @@ const Programs = () => {
           </div>
         </div>
         <div className={openTab === 3 ? 'hidden lg:flex lg:items-center' : 'hidden'} id="link3">
-          <iframe
-            className="pl-8 linkedin"
-            src="https://www.linkedin.com/embed/feed/update/urn:li:share:6759920948922732544"
-            frameBorder="0"
-            allowFullScreen={false}
-            title="Embedded post"
-          />
+          {openTab === 3 && (
+            <iframe
+              className="pl-8 linkedin"
+              src="https://www.linkedin.com/embed/feed/update/urn:li:share:6759920948922732544"
+              frameBorder="0"
+              allowFullScreen={false}
+              title="Embedded post"
+            />
+          )}
         </div>
       </div>
     </div>
