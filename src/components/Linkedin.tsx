@@ -57,7 +57,7 @@ export default function Linkedin({
                 {created_at}
               </span>
             </a>
-            <a className="ml-auto" href={authorUrl} target="_blank" rel="noopener noreferrer">
+            <a className="ml-auto self-baseline" href={authorUrl} target="_blank" rel="noopener noreferrer">
               <svg
                 viewBox="0 0 64 64"
                 height="32"
