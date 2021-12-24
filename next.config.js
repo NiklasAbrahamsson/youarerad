@@ -27,7 +27,7 @@ module.exports = withBundleAnalyzer({
   },
 
   images: {
-    domains: ['res.cloudinary.com', 'pbs.twimg.com', 'abs.twimg.com'],
+    domains: ['res.cloudinary.com', 'pbs.twimg.com', 'abs.twimg.com', 'media-exp1.licdn.com'],
   },
   i18n: {
     locales: ['en-US'],
