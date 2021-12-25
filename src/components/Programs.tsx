@@ -395,33 +395,43 @@ const Programs = () => {
                 </div>
                 <div className={openTab === 3 ? 'lg:hidden flex py-10' : 'hidden'} id="link3">
                   <Linkedin
-                    id="1393354511662653440"
-                    name="Nikki"
-                    author="Nihaachu"
-                    media="https://pbs.twimg.com/profile_images/1351788563931803654/t4caSZnS_400x400.jpg"
-                    image="https://res.cloudinary.com/df23ubjbb/image/upload/v1630279611/Nikki.jpg"
-                    created_at="4:56 PM · May 14, 2021"
+                    name="Ronny Dickstein"
+                    author="ronny-dickstein-75019323"
+                    postUrl="https://www.linkedin.com/posts/ronny-dickstein-75019323_i-was-recently-awarded-the-innovation-award-activity-6759920949681893376-vyX0"
+                    media="https://media-exp1.licdn.com/dms/image/C5603AQF3bMVX-8U2gg/profile-displayphoto-shrink_100_100/0/1635462533351?e=1645660800&v=beta&t=mBLn0nFnqL4QK8QW0F33A7ys9soQFDgn6GtyAVzXSBI"
+                    image="https://media-exp1.licdn.com/dms/image/C5622AQGv_lWPLR0D1A/feedshare-shrink_800/0/1611690746322?e=1643241600&v=beta&t=Cihy5E4SNnXX6kS2AZOMAvcYRUDldAmWmhApdg_5aiM"
+                    created_at="11mo"
                     text={
                       <div>
-                        Thank you so much for this amazing stream! I cannot put into words how thankful I am
-                        for all your support and the love from my community. we also managed to completely
-                        smash the donation goal for{' '}
-                        <a href="https://twitter.com/youarerad">
-                          <span className="text-blue-700">@YouAreRAD</span>
+                        I was recently awarded the Innovation Award for my mental wellness project
+                        and I want to recognize a few people. Shoutout to the leadership team on the
+                        Competitive Gaming team at{' '}
+                        <a
+                          href="https://www.linkedin.com/company/electronic-arts?trk=public_post-embed_share-update_update-text"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <span className="text-blue-700">Electronic Arts (EA)</span>
                         </a>{' '}
-                        managing to be able to pay for 217 fully payed therapy sessions!!! ❤️
+                        who recognized this often invisible issue around player mental health and
+                        decided to support a program to provide our pro players with mental health
+                        resources. Shoutout to{' '}
+                        <a
+                          href="https://www.linkedin.com/company/youarerad?trk=public_post-embed_share-update_update-text"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <span className="text-blue-700">Rise Above The Disorder</span>
+                        </a>{' '}
+                        for being that amazing mental health resource for the players. This may be
+                        the most important thing I&apos;ll ever work on in my career. I will
+                        continue to work hard to make sure every single player who participates in
+                        an EA competition will be able to get the mental health help that they need.
                       </div>
                     }
-                    likes="98.7k"
-                    comments="955"
+                    likes="119"
+                    comments="9"
                   />
-                  {/* <iframe
-                    className="linkedin"
-                    src="https://www.linkedin.com/embed/feed/update/urn:li:share:6759920948922732544"
-                    frameBorder="0"
-                    allowFullScreen={false}
-                    title="Embedded post"
-                  /> */}
                 </div>
               </li>
             </ul>
@@ -700,33 +710,43 @@ const Programs = () => {
         </div>
         <div className={openTab === 3 ? 'hidden lg:flex lg:items-center' : 'hidden'} id="link3">
           <Linkedin
-            id="1393354511662653440"
             name="Ronny Dickstein"
             author="ronny-dickstein-75019323"
+            postUrl="https://www.linkedin.com/posts/ronny-dickstein-75019323_i-was-recently-awarded-the-innovation-award-activity-6759920949681893376-vyX0"
             media="https://media-exp1.licdn.com/dms/image/C5603AQF3bMVX-8U2gg/profile-displayphoto-shrink_100_100/0/1635462533351?e=1645660800&v=beta&t=mBLn0nFnqL4QK8QW0F33A7ys9soQFDgn6GtyAVzXSBI"
             image="https://media-exp1.licdn.com/dms/image/C5622AQGv_lWPLR0D1A/feedshare-shrink_800/0/1611690746322?e=1643241600&v=beta&t=Cihy5E4SNnXX6kS2AZOMAvcYRUDldAmWmhApdg_5aiM"
             created_at="11mo"
             text={
               <div>
-                I was recently awarded the Innovation Award for my mental wellness project and I want to recognize a few people.
-
-                Shoutout to the leadership team on the Competitive Gaming team at <a href="https://www.linkedin.com/company/electronic-arts?trk=public_post-embed_share-update_update-text" target="_blank" rel="noreferrer" ><span className="text-blue-700">Electronic Arts (EA)</span></a> who recognized this often invisible issue around player mental health and decided to support a program to provide our pro players with mental health resources.
-
-                Shoutout to <a href="https://www.linkedin.com/company/youarerad?trk=public_post-embed_share-update_update-text" target="_blank" rel="noreferrer"><span className="text-blue-700">Rise Above The Disorder</span></a> for being that amazing mental health resource for the players.
-
-                This may be the most important thing I&apos;ll ever work on in my career. I will continue to work hard to make sure every single player who participates in an EA competition will be able to get the mental health help that they need.
+                I was recently awarded the Innovation Award for my mental wellness project and I
+                want to recognize a few people. Shoutout to the leadership team on the Competitive
+                Gaming team at{' '}
+                <a
+                  href="https://www.linkedin.com/company/electronic-arts?trk=public_post-embed_share-update_update-text"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="text-blue-700">Electronic Arts (EA)</span>
+                </a>{' '}
+                who recognized this often invisible issue around player mental health and decided to
+                support a program to provide our pro players with mental health resources. Shoutout
+                to{' '}
+                <a
+                  href="https://www.linkedin.com/company/youarerad?trk=public_post-embed_share-update_update-text"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="text-blue-700">Rise Above The Disorder</span>
+                </a>{' '}
+                for being that amazing mental health resource for the players. This may be the most
+                important thing I&apos;ll ever work on in my career. I will continue to work hard to
+                make sure every single player who participates in an EA competition will be able to
+                get the mental health help that they need.
               </div>
             }
             likes="119"
             comments="9"
           />
-          {/* <iframe
-            className="pl-8 linkedin"
-            src="https://www.linkedin.com/embed/feed/update/urn:li:share:6759920948922732544"
-            frameBorder="0"
-            allowFullScreen={false}
-            title="Embedded post"
-          /> */}
         </div>
       </div>
     </div>
