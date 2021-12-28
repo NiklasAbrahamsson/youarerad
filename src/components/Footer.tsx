@@ -1,8 +1,9 @@
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import Newsletter from './forms/Newsletter'
-import Mayhover from './lotties/may'
-
+// import Mayhover from './lotties/may'
+const Mayhover = dynamic(() => import('./lotties/may'), { ssr: false })
 type NavItem = {
   name: string
   href: string
