@@ -106,7 +106,8 @@ if you are seeking help but don't want to go from therapist to therapist trying 
                 media={<VideoPlayer publicId="General%20Media/therapistfinder" />}
               />
             </div>
-            <Button linkTo="https://intakeq.com/new/KT5Fej/ttVScO">Start Therapy</Button>
+            <Button linkTo="">Temporarily Closed</Button>
+            <p>The clinical team at RAD will be on holiday from Dec, 20th to Jan, 3rd.</p>
           </Lazysections>
         </section>
       </div>
