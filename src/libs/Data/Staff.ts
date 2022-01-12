@@ -76,7 +76,7 @@ export const Staff = [
     name: 'Jenny Hogan',
     title: 'Clinical Social Work I',
     salary: '$37,000',
-    picture: 'https://res.cloudinary.com/df23ubjbb/image/upload/v1634051172/JennyHogan.jpg',
+    picture: 'https://res.cloudinary.com/df23ubjbb/image/upload/v1641225784/Jenny.webp',
   },
   {
     name: 'Bella Blumenschein',
